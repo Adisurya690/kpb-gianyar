@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  @vite(['resources/css/app.css','resources/js/app.js'])
+  <link rel="icon" href="{{ asset('storage/images/Logo-KPB.png') }}" type="image/png">
+  <title>KPB Gianyar</title>
+</head>
+<body>
+  {{-- Header --}}
+  @include('partials.navbar') 
+
+  {{-- under maintenance --}}
+  <div class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="text-center p-8 bg-white rounded-lg shadow-lg max-w-md">
+        <h1 class="text-4xl font-bold text-red-600 mb-4">Halaman Ini Sedang Dalam Pengerjaan</h1>
+        <p class="text-lg text-gray-700 mb-6">Kami sedang bekerja keras untuk menyelesaikan halaman ini. Harap tunggu sebentar!</p>
+        <p class="text-gray-500">Terima kasih atas kesabaran Anda.</p>
+        <div class="mt-8">
+            <a href="{{ route('home') }}" class="text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 rounded-lg px-4 py-2">Kembali ke Beranda</a>
+        </div>
+    </div>
+  </div>
+
+  <div>
+
+  </div>
+
+
+
+  {{-- Footer --}}
+  @include('partials.footer') 
+</body>
+</html>
