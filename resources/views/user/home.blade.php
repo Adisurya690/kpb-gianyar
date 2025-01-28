@@ -34,36 +34,36 @@
     </div>
     <div class="flex justify-center items-center py-5">
       <!-- Card 1 -->
-      <a href="{{ route('kebudayaan') }}" class="flex flex-col items-center bg-white mx-3 border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 transform hover:scale-105 transition-all">
+      <a href="{{ route('kebudayaan') }}" class="flex flex-col items-center bg-white mx-3 border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 transform hover:scale-105 transition-all">
         <div class="w-full h-48 overflow-hidden">
           <img class="object-cover w-full h-full rounded-t-lg" src="https://www.rentalmobilbali.net/wp-content/uploads/2021/04/Candi-Tebing-Gunung-Kawi-Facebook.jpg" alt="Card Image">
         </div>
         <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Budaya Benda</h5>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Warisan budaya yang berbentuk fisik, seperti bangunan, artefak, dan benda-benda bersejarah yang memiliki nilai sejarah dan budaya</p>
+          <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Budaya Benda</h5>
+          <p class="mb-3 font-normal text-gray-700">Warisan budaya yang berbentuk fisik, seperti bangunan, artefak, dan benda-benda bersejarah yang memiliki nilai sejarah dan budaya</p>
         </div>
       </a>
       
       <!-- Card 2 -->
-      <a href="{{ route('kebudayaan') }}" class="flex flex-col items-center bg-white mx-3 border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 transform hover:scale-105 transition-all">
+      <a href="{{ route('kebudayaan') }}" class="flex flex-col items-center bg-white mx-3 border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 transform hover:scale-105 transition-all">
         <div class="w-full h-48 overflow-hidden">
           <img class="object-cover w-full h-full rounded-t-lg" src="https://statik.tempo.co/data/2023/02/08/id_1179591/1179591_720.jpg" alt="Card Image">
         </div>
         <div class="flex flex-col justify-between p-4 leading-normal">
-          <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Budaya Tak Benda</h5>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Nilai, tradisi, dan ekspresi budaya yang tidak berbentuk fisik, seperti kesenian, bahasa, dan adat istiadat yang diwariskan secara turun-temurun.</p>
+          <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">Budaya Tak Benda</h5>
+          <p class="mb-3 font-normal text-gray-700">Nilai, tradisi, dan ekspresi budaya yang tidak berbentuk fisik, seperti kesenian, bahasa, dan adat istiadat yang diwariskan secara turun-temurun.</p>
         </div>
       </a>
     </div> 
   </div> 
 
   {{-- tentang kpb gianyar --}}
-  <section class="bg-white dark:bg-gray-900 mt-5">
+  <section class="bg-white mt-5">
     <div class="grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
-          <h1 class="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl dark:text-white">KPB Gianyar</h1>
-          <p class="max-w-2xl mb-1 font-light text-gray-500 lg:mb-4 md:text-lg lg:text-xl dark:text-gray-400">Lembaga Sosial yang bergerak di bidang Pendidikan Pelestarian Budaya bagi generasi muda di kab. Gianyar.</p>
-          <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Tentang Kami</button>
+          <h1 class="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl">KPB Gianyar</h1>
+          <p class="max-w-2xl mb-1 font-light text-gray-500 lg:mb-4 md:text-lg lg:text-xl">Lembaga Sosial yang bergerak di bidang Pendidikan Pelestarian Budaya bagi generasi muda di kab. Gianyar.</p>
+          <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center">Tentang Kami</button>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
           <div class="relative w-full h-64 overflow-hidden rounded-lg">
@@ -190,7 +190,7 @@
     </div>
     <div class="flex items-center justify-center">
       <a href="{{ route('blog') }}" 
-        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center">
         Baca Artikel Lainnya
       </a>
     </div>    
