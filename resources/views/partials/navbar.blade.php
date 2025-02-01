@@ -36,6 +36,9 @@
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil</a>
           </li>
           <li>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Riwayat Laporan</a>
+          </li>
+          <li>
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :hover:bg-gray-600">Keluar</a>
           </li>
         </ul>
@@ -59,7 +62,8 @@
       <li>
         <a href="{{ route('kebudayaan') }}" 
           class="block py-2 px-3 rounded md:p-0 
-            {{ Request::is('kebudayaan') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}"
+            {{ Request::is('kebudayaan') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+            {{ Request::is('kebudayaan-detail') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}"
           aria-current="page">
           Kebudayaan
         </a>
@@ -67,7 +71,8 @@
       <li>
         <a href="{{ route('blog') }}"
           class="block py-2 px-3 rounded md:p-0 
-            {{ Request::is('blog') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}">
+            {{ Request::is('blog') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+            {{ Request::is('blog-detail') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}">
           Blog
         </a> {{-- opsional --}}
       </li>

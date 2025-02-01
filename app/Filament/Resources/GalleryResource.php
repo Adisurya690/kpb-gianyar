@@ -11,11 +11,13 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Illuminate\Support\Str;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class GalleryResource extends Resource
 {
@@ -39,7 +41,11 @@ class GalleryResource extends Resource
                 ->image()
                 ->directory('cover_album')
                 ->visibility('public')
-                ->preserveFilenames(),
+                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file) {
+                  $uniqueName = Str::uuid();
+                  $extension = $file->getClientOriginalExtension();         
+                  return "{$uniqueName}." . strtolower($extension);
+                }),
               TextInput::make('link')
               ->url(),
             ]);
@@ -50,7 +56,8 @@ class GalleryResource extends Resource
         return $table
             ->columns([
               ImageColumn::make('image')
-                ->label('Sampul Album'),
+                ->label('Sampul Album')
+                ->searchable(),
               TextColumn::make('name')
                 ->label('Judul Album'),
               TextColumn::make('link'),
