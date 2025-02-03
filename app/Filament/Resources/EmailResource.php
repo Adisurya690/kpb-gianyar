@@ -53,7 +53,6 @@ class EmailResource extends Resource
         return $table
             ->columns([
               TextColumn::make('email_name')
-                ->searchable()
                 ->label('Nama'),
               TextColumn::make('email')
                 ->searchable()
