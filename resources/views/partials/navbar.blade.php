@@ -36,7 +36,7 @@
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Riwayat Laporan</a>
+            <a href="{{ route('status') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Riwayat Laporan</a>
           </li>
           <li>
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 :hover:bg-gray-600">Keluar</a>

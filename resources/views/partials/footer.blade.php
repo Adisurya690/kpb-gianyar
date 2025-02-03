@@ -47,10 +47,10 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Alamat</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="https://flowbite.com/" class="hover:underline">Br. Pande, Pejeng, <br> Tampaksiring, Gianyar</a>
+                        <a href="#" class="hover:underline">Br. Pande, Pejeng, <br> Tampaksiring, Gianyar</a>
                     </li>
                     <li>
-                        <a href="https://tailwindcss.com/" class="hover:underline">0812-3456-7890</a>
+                        <a href="#" class="hover:underline">0812-3456-7890</a>
                     </li>
                 </ul>
               </div>
