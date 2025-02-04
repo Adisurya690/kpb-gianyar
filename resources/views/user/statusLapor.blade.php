@@ -28,9 +28,11 @@
                   @forelse ($report->statusHistories as $history)
                       <li>
                           <span class="font-semibold">{{ $history->status }}</span> - 
-                          <span class="text-sm text-gray-500">{{ $history->created_at->format('d F Y') }}</span>
+                          <span class="text-sm text-gray-500">
+                              {{ $history->created_at->locale('id')->translatedFormat('d F Y | H:i') }}
+                          </span>
                           @if($history->note)
-                              <p class="text-gray-600 italic">{{ $history->note }}</p>
+                              <p class="text-gray-600 italic">Catatan: {{ $history->note }}</p>
                           @endif
                       </li>
                   @empty

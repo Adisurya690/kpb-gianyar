@@ -81,7 +81,26 @@ class LaporResource extends Resource
             
             Textarea::make('note')
                 ->label('Catatan Perubahan Status')
-                ->nullable()                                                                                                        
+                ->nullable()
+                ->afterStateUpdated(function ($state, $set, $get, $record) {
+                  if ($record->status) {
+                      $latestHistory = $record->statusHistories()
+                          ->where('status', $record->status)
+                          ->latest()
+                          ->first();
+          
+                      if ($latestHistory) {
+                          // Update note pada status terakhir
+                          $latestHistory->update(['note' => $state]);
+                      } else {
+                          // Jika tidak ada history, buat baru
+                          $record->statusHistories()->create([
+                              'status' => $record->status,
+                              'note' => $state,
+                          ]);
+                      }
+                  }
+              })                                                                                                     
             ]);
     }
 
