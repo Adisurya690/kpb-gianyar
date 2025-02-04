@@ -30,11 +30,11 @@
   <div class="space-x-4 bg-gray-50 py-10">
     <div class="text-center">
       <h2 class="text-4xl font-bold text-red-700">Kebudayaan</h2>
-      <p class="text-gray-500 lg:text-xl">Daftar kebudayaan di Kabupaten Gianyar</p>
+      <p class="text-gray-500 lg:text-xl">Kategori kebudayaan di Kabupaten Gianyar</p>
     </div>
     <div class="flex justify-center items-center py-5">
-      <!-- Card 1 -->
-      <a href="{{ route('kebudayaan') }}" class="flex flex-col items-center bg-white mx-3 border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 transform hover:scale-105 transition-all">
+      <!-- Card 1: Budaya Benda -->
+      <a href="{{ route('user.kebudayaan', ['category' => 'Benda']) }}" class="flex flex-col items-center bg-white mx-3 border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 transform hover:scale-105 transition-all">
         <div class="w-full h-48 overflow-hidden">
           <img class="object-cover w-full h-full rounded-t-lg" src="https://www.rentalmobilbali.net/wp-content/uploads/2021/04/Candi-Tebing-Gunung-Kawi-Facebook.jpg" alt="Card Image">
         </div>
@@ -44,8 +44,8 @@
         </div>
       </a>
       
-      <!-- Card 2 -->
-      <a href="{{ route('kebudayaan') }}" class="flex flex-col items-center bg-white mx-3 border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 transform hover:scale-105 transition-all">
+      <!-- Card 2: Budaya Tak Benda -->
+      <a href="{{ route('user.kebudayaan', ['category' => 'Tak Benda']) }}" class="flex flex-col items-center bg-white mx-3 border border-gray-200 rounded-lg shadow max-w-md hover:bg-gray-100 transform hover:scale-105 transition-all">
         <div class="w-full h-48 overflow-hidden">
           <img class="object-cover w-full h-full rounded-t-lg" src="https://statik.tempo.co/data/2023/02/08/id_1179591/1179591_720.jpg" alt="Card Image">
         </div>
