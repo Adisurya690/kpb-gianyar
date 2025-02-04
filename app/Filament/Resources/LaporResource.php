@@ -51,7 +51,7 @@ class LaporResource extends Resource
                 ->readOnly(),
               TextInput::make('reporter')
                 ->readOnly(),
-              Select::make('status')
+                Select::make('status')
                 ->options([
                     'Laporan Dikirim' => 'Laporan Dikirim',
                     'Laporan Telah Dibaca' => 'Laporan Telah Dibaca',
@@ -59,21 +59,19 @@ class LaporResource extends Resource
                     'Laporan Selesai' => 'Laporan Selesai',
                 ])
                 ->afterStateUpdated(function ($state, $set, $get, $record) {
-                    // Simpan status ke tabel lapors, tetapi tanpa mengubah kolom 'note'
+                    // Simpan status ke tabel lapors
                     $record->status = $state;
                     $record->save();
-                    
-                    // Simpan catatan perubahan status ke tabel status_histories
-                    $note = $get('note');
-                    if ($note) {
-                        $record->statusHistories()->create([
-                            'status' => $state,
-                            'note' => $note,
-                        ]);
-                    }
             
-                    // Kirim email notifikasi ke user jika ada email
-                    $userEmail = $record->user ? $record->user->email : null;
+                    // Simpan catatan perubahan status ke tabel status_histories
+                    $note = $get('note') ?: 'Tidak ada catatan';
+                    $record->statusHistories()->create([
+                        'status' => $state,
+                        'note' => $note,
+                    ]);
+            
+                    // Kirim email notifikasi ke user
+                    $userEmail = $record->user->email ?? null;
                     if ($userEmail) {
                         Mail::to($userEmail)->send(new ReportStatusUpdatedMail($record));
                     } else {
@@ -83,7 +81,7 @@ class LaporResource extends Resource
             
             Textarea::make('note')
                 ->label('Catatan Perubahan Status')
-                ->nullable(),                                                                                            
+                ->nullable()                                                                                                        
             ]);
     }
 
