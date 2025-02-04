@@ -73,127 +73,57 @@
     </div>
   </section>
 
-  {{-- blog --}}
+  {{-- Blog Section --}}
   <div class="bg-gray-50 py-10">
     <div class="text-center">
-      <h2 class="text-4xl font-bold text-red-700">Blog</h2>
-      <p class="text-gray-500 lg:text-xl mx-auto max-w-xl pt-2">Temukan artikel seputar kebudayaan serta informasi yang menginspirasi dan memperkaya wawasan Anda</p>
+        <h2 class="text-4xl font-bold text-red-700">Blog</h2>
+        <p class="text-gray-500 lg:text-xl mx-auto max-w-xl pt-2">
+            Temukan artikel seputar kebudayaan serta informasi yang menginspirasi dan memperkaya wawasan Anda
+        </p>
     </div>
-    <div class="flex justify-center items-center">
-      {{-- card 1 --}}
-      <a class="px-3" href="javascript:void(0)">
-        <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 transform hover:bg-gray-100 hover:scale-105 transition-all">
-          <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-            <img src="https://www.sejarahbali.com/public/uploads/berita/Berita_231005020550_sejarah-pura-mengening-tampaksiring-gianyar.webp" alt="card-image" />
-          </div>
-          <div class="p-4">
-            <div class="mb-4 inline-block rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm text-center">
-              KEBUDAYAAN
-            </div>
-            <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-              Cagar Budaya | Membuka Wawasan Kebudayaan
-            </h6>
-            <p class="text-slate-600 leading-normal font-light">
-              Sesuai dengan Undang-Undang Republik Indonesia Nomor 11 Tahun 2010 tentang Cagar budaya, BAB I Pasal 1 menyebutkan bahwa Cagar Budaya adalah...
-            </p>
-          </div>
-      
-          <div class="flex items-center justify-between p-4">
-            <div class="flex items-center">
-              <img
-                alt="Nitya Nanda"
-                src="https://scontent.fdps2-1.fna.fbcdn.net/v/t1.6435-9/39453341_1031206197040755_8185257855633326080_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5bbf69&_nc_eui2=AeGMl837T0II-LNh_FpIMMNcp5LY0Dm7LRanktjQObstFjzVax-yhA5WPzpRml20b3iMgw1SkDxMRZUUItvmC7sX&_nc_ohc=02DLNKufuuEQ7kNvgFQG_aV&_nc_zt=23&_nc_ht=scontent.fdps2-1.fna&_nc_gid=A3Yy_h7jIf16kIq16Vxw0JO&oh=00_AYBNYoBKLieP_Hj-6LDL7wyS01d2t8wxP6FcQyQepSpzQQ&oe=67851878"
-                class="relative inline-block h-8 w-8 rounded-full object-cover"
-              />
-              <div class="flex flex-col ml-3 text-sm">
-                <span class="text-slate-800 font-semibold">Nitya Nanda</span>
-                <span class="text-slate-600">
-                  January 10, 2024
-                </span>
-              </div>
-            </div>
-          </div>
-        </div> 
-      </a>
-
-      {{-- card 2 --}}
-      <a class="px-3" href="javascript:void(0)">
-        <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 transform hover:bg-gray-100 hover:scale-105 transition-all">
-          <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-            <img src="https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/baliexpress/2017/12/pakaian-adat-ungkap-simbolik-dharma-ini-penjelasannya_m_35526.jpeg" alt="card-image" />
-          </div>
-          <div class="p-4">
-            <div class="mb-4 inline-block rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm text-center">
-              KEBUDAYAAN
-            </div>            
-            <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-              Memahami Makna filosofis Busana Adat Bali
-            </h6>
-            <p class="text-slate-600 leading-normal font-light">
-              Dewasa ini globalisasi sangat mempengaruhi kehidupan manusia, mulai dari cara berpikir, prilaku, hingga mempengaruhi sosial budaya salah satunya dalam menggunakan busana...
-            </p>
-          </div>
-      
-          <div class="flex items-center justify-between p-4">
-            <div class="flex items-center">
-              <img
-                alt="Triadi Adnyani"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKR37rcD-Efedtkrw_Ag-gousr8B7pNcOog&s"
-                class="relative inline-block h-8 w-8 rounded-full object-cover"
-              />
-              <div class="flex flex-col ml-3 text-sm">
-                <span class="text-slate-800 font-semibold">Triadi Adnyani</span>
-                <span class="text-slate-600">
-                  January 10, 2024
-                </span>
-              </div>
-            </div>
-          </div>
-        </div> 
-      </a>
-
-      {{-- card 3 --}}
-      <a class="px-3" href="javascript:void(0)">
-        <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 transform hover:bg-gray-100 hover:scale-105 transition-all">
-          <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-            <img src="https://puragunungsalak.or.id/wp-content/uploads/2018/07/Canang-sari.jpg" alt="card-image" />
-          </div>
-          <div class="p-4">
-            <div class="mb-4 inline-block rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm text-center">
-              KEBUDAYAAN
-            </div>
-            <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-              Makna Upakara Canang Sari dan Uparengga Kelabang Mantri
-            </h6>
-            <p class="text-slate-600 leading-normal font-light">
-              Beragama di zaman modern seperti sekarang ini, tidak dapat disamakan dengan kehidupan beragama pada masa silam. Kehidupan masyarakat masa lalu yang secara...
-            </p>
-          </div>
-      
-          <div class="flex items-center justify-between p-4">
-            <div class="flex items-center">
-              <img
-              alt="Dewa Edi"
-              src="https://sakti.unmas.ac.id/dosen/808/foto/hwJjIK06pDoFdWN7DI9c6iCqGWwZvWgFbvRVL1OP.jpg"
-              class="relative inline-block h-8 w-8 rounded-full object-cover"
-              />            
-              <div class="flex flex-col ml-3 text-sm">
-                <span class="text-slate-800 font-semibold">Dewa Edi</span>
-                <span class="text-slate-600">
-                  January 10, 2024
-                </span>
-              </div>
-            </div>
-          </div>
-        </div> 
-      </a>
+    
+    <div class="flex flex-wrap justify-center items-center">
+        @foreach ($blogs as $blog)
+            <a class="px-3" href="{{ route('blogDetail', $blog->slug) }}">
+                <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 transform hover:bg-gray-100 hover:scale-105 transition-all">
+                    <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+                        <img src="{{ asset('storage/' . $blog->featured_image) }}" alt="{{ $blog->title }}" class="object-cover w-full h-full">
+                    </div>
+                    <div class="p-4">
+                        <div class="mb-4 inline-block rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm text-center">
+                            KEBUDAYAAN
+                        </div>
+                        <h6 class="mb-2 text-slate-800 text-xl font-semibold">
+                            {{ $blog->title }}
+                        </h6>
+                        <p class="text-slate-600 leading-normal font-light">
+                            {{ Str::limit(strip_tags($blog->content), 100) }}
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between p-4">
+                        <div class="flex items-center">
+                            <img 
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKR37rcD-Efedtkrw_Ag-gousr8B7pNcOog&s" 
+                                alt="{{ $blog->author }}" 
+                                class="h-10 w-10 rounded-full object-cover mr-3"
+                            />
+                            <div class="flex flex-col">
+                                <span class="text-slate-800 font-semibold">{{ $blog->author }}</span>
+                                <span class="text-slate-600">{{ $blog->created_at->format('F d, Y') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        @endforeach
     </div>
+
     <div class="flex items-center justify-center">
-      <a href="{{ route('blog') }}" 
-        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center">
-        Baca Artikel Lainnya
-      </a>
-    </div>    
+        <a href="{{ route('blog') }}" 
+          class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center">
+            Baca Artikel Lainnya
+        </a>
+    </div>
   </div>
 
   {{-- Footer --}}

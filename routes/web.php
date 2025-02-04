@@ -1,17 +1,14 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('user.home');
-})-> name('home');
 
-// Route::get('/dashboard', function () {
-//     return view('user.home');
-// })->middleware(['auth', 'verified'])->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
 // Rute-rute untuk halaman umum (user)
 Route::get('/kebudayaan', function () {
@@ -22,13 +19,8 @@ Route::get('/kebudayaan-detail', function () {
   return view('user.kebudayaanDetail');
 })->name('kebudayaanDetail');
 
-Route::get('/blog', function () {
-  return view('user.blog');
-})->name('blog');
-
-Route::get('/blog-detail', function () {
-  return view('user.blogDetail');
-})->name('blogDetail');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blogDetail');
 
 Route::get('/galeri', [GalleryController::class, 'index'])->name('galeri');
 
@@ -42,11 +34,7 @@ Route::get('/tentang', function () {
 
 Route::resource('reports', ReportController::class);
 Route::post('/kebudayaan', [ReportController::class, 'store'])->name('store-report');
-Route::post('reports/{report}/status', [ReportController::class, 'updateStatus'])->name('reports.updateStatus');
-
-// Route::get('/status', function () {
-//   return view('user.statusLapor');
-// })->name('status');
+Route::post('reports/{report}/status', [ReportController::class, 'updateStatus'])->name('reports.updateStatus');;
 
 Route::get('/status', [ReportController::class, 'showStatus'])
     ->middleware(['auth'])
