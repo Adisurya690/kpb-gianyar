@@ -25,34 +25,48 @@
     </div>
   </div>  
 
-  {{-- Card --}}
-  <div class="flex justify-center items-center my-16">
-    <a href="link-ke-halaman-1" class="max-w-sm bg-white border border-gray-100 rounded-lg shadow mx-3 transform hover:scale-105 hover:bg-gray-50 transition-all">
-      <img class="rounded-t-lg object-cover h-48 w-full transition-all" src="https://www.baliekbis.com/wp-content/uploads/2019/07/DSCF9054-800x445.jpg" alt="" />
-      <div class="p-5">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kemah Budaya IX KPB Gianyar di Guwang, Sukawati</h5>
-        <p class="text-gray-500">Arsip KPB Gianyar</p>
+  {{-- Search --}}
+  <div class="my-6">
+    <form action="{{ route('galeri') }}" method="GET" class="flex items-center max-w-lg mx-auto">   
+      <label for="simple-search" class="sr-only">Search</label>
+      <div class="relative w-full">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>                    
+          </div>
+          <input type="text" name="search" id="simple-search" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full ps-10 p-2.5" placeholder="Cari berdasarkan judul" value="{{ request('search') }}" />
       </div>
-    </a>
-
-    <a href="link-ke-halaman-2" class="max-w-sm bg-white border border-gray-100 rounded-lg shadow mx-3 transform hover:scale-105 hover:bg-gray-50 transition-all">
-      <img class="rounded-t-lg object-cover h-48 w-full transition-all" src="https://asset.kompas.com/crops/IkLhgxOmsy6z7VU21bt84dgjw90=/0x0:2896x1931/1200x800/data/photo/2023/12/07/65717a1769c4b.jpg" alt="" />
-      <div class="p-5">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Pembersihan Candi Tebing Kerobokan</h5>
-        <p class="text-gray-500">Arsip KPB Gianyar</p>
-      </div>
-    </a>
-
-    <a href="link-ke-halaman-3" class="max-w-sm bg-white border border-gray-100 rounded-lg shadow mx-3 transform hover:scale-105 hover:bg-gray-50 transition-all">
-      <img class="rounded-t-lg object-cover h-48 w-full transition-all" src="https://www.baliekbis.com/wp-content/uploads/2018/06/img-20180629-wa0016.jpg" alt="" />
-      <div class="p-5">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Kemah Budaya VIII KPB Gianyar</h5>
-        <p class="text-gray-500">Arsip KPB Gianyar</p>
-      </div>
-    </a>
+      <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-red-700 rounded-lg border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300">
+          <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+          <span class="sr-only">Search</span>
+      </button>
+    </form>
   </div>
-
-
+    
+  {{-- Card Section --}}
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        @forelse ($galleries as $gallery)
+            <a href="{{ $gallery->link }}" target="_blank" 
+                class="max-w-sm bg-white border border-gray-100 rounded-lg shadow mx-auto transform hover:scale-105 hover:bg-gray-50 transition-all mb-6">
+                <img class="rounded-t-lg object-cover h-48 w-full transition-all" 
+                    src="{{ asset('storage/' . $gallery->image) }}" 
+                    alt="{{ $gallery->name }}" />
+                <div class="p-5">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ $gallery->name }}</h5>
+                    <p class="text-gray-500">Arsip KPB Gianyar</p>
+                </div>
+            </a>
+            @empty
+            <div class="min-h-screen">
+                <p class="text-gray-400">Tidak ada yang ditemukan untuk kriteria pencarian Anda.</p> <!-- Pesan jika tidak ada hasil pencarian -->
+            </div>
+        @endforelse
+    </div>
+  </div>
 
   {{-- Footer --}}
   @include('partials.footer') 
