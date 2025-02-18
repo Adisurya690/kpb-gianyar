@@ -53,36 +53,40 @@
     <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
       <li>
         <a href="{{ route('home') }}" 
-          class="block py-2 px-3 rounded md:p-0 
-            {{ Request::is('/') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}"
+          class="block py-2 px-3 rounded md:p-0 relative 
+                  {{ Request::is('/') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+                  after:block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-red-300 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
           aria-current="page">
           Beranda
         </a>
       </li>
       <li>
         <a href="{{ route('kebudayaan') }}" 
-          class="block py-2 px-3 rounded md:p-0 
-            {{ Request::is('kebudayaan') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
-            {{ Request::is('kebudayaan-detail') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}"
+          class="block py-2 px-3 rounded md:p-0 relative 
+                  {{ Request::is('kebudayaan') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+                  {{ Request::is('kebudayaan-detail') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+                  after:block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-red-300 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100"
           aria-current="page">
           Kebudayaan
         </a>
       </li>
       <li>
         <a href="{{ route('blog') }}"
-          class="block py-2 px-3 rounded md:p-0 
-            {{ Request::is('blog') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
-            {{ Request::is('blog-detail') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}">
+          class="block py-2 px-3 rounded md:p-0 relative 
+                  {{ Request::is('blog') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+                  {{ Request::is('blog-detail') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+                  after:block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-red-300 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
           Blog
-        </a> {{-- opsional --}}
+        </a>
       </li>
       <li>
         <a href="{{ route('galeri') }}"
-          class="block py-2 px-3 rounded md:p-0 
-            {{ Request::is('galeri') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}">
+          class="block py-2 px-3 rounded md:p-0 relative 
+                  {{ Request::is('galeri') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+                  after:block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-red-300 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
           Galeri
         </a>
-      </li>
+      </li>      
       {{-- <li>
         <a href="{{ route('kiprah') }}"
           class="block py-2 px-3 rounded md:p-0 
@@ -92,8 +96,9 @@
       </li> --}} {{-- opsional --}}
       <li>
         <a href="{{ route('tentang') }}"
-          class="block py-2 px-3 rounded md:p-0 
-            {{ Request::is('tentang') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}">
+          class="block py-2 px-3 rounded md:p-0 relative 
+                  {{ Request::is('tentang') ? 'text-white md:text-red-700' : 'text-gray-900 md:hover:text-red-700 md:dark:hover:text-red-500' }}
+                  after:block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0 after:bg-red-300 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
           Tentang
         </a>
       </li>
