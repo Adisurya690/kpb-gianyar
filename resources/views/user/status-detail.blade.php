@@ -1,3 +1,4 @@
+{{-- Belum Selesai --}}
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,7 +15,7 @@
   @include('partials.navbar') 
 
   {{-- Main Content --}}
-    <div class="container mx-auto py-8">
+    <div class="container mx-auto py-8 h-screen">
       <h1 class="text-2xl font-bold mb-4">Status Laporan Kebudayaan</h1>
 
       @forelse ($reports as $report)
@@ -28,11 +29,9 @@
                   @forelse ($report->statusHistories as $history)
                       <li>
                           <span class="font-semibold">{{ $history->status }}</span> - 
-                          <span class="text-sm text-gray-500">
-                              {{ $history->created_at->locale('id')->translatedFormat('d F Y | H:i') }}
-                          </span>
+                          <span class="text-sm text-gray-500">{{ $history->created_at->format('d F Y') }}</span>
                           @if($history->note)
-                              <p class="text-gray-600 italic">Catatan: {{ $history->note }}</p>
+                              <p class="text-gray-600 italic">{{ $history->note }}</p>
                           @endif
                       </li>
                   @empty
