@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
+use function Termwind\style;
+
 class BlogResource extends Resource
 {
     protected static ?string $model = Blog::class;
@@ -77,7 +79,8 @@ class BlogResource extends Resource
                     'strike',
                     'underline',
                     'undo',
-                ]),
+                ])
+                ->extraInputAttributes(['style' => 'min-height: 20rem; max-height: 50vh; overflow-y: auto;']),
               TextInput::make('meta_title')
                 ->required(),
               TextInput::make('meta_keyword')

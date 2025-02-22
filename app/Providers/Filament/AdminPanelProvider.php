@@ -6,6 +6,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -17,6 +18,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -27,6 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->authGuard('admin')
             ->colors([
                 'danger' => Color::Red,
                 'gray' => Color::Gray,
@@ -34,6 +37,21 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Red,
                 'success' => Color::Yellow,
                 'warning' => Color::Red,
+                'green' => Color::Green,
+                'blue' => Color::Blue,
+            ])
+            // ->profile()
+            ->plugins([
+                // FilamentEditProfilePlugin::make()
+                FilamentEditProfilePlugin::make()
+                  ->slug (value: 'my-profile')
+                  ->setTitle(value: 'Edit Profil')
+                  ->setNavigationLabel(value: 'Profil Saya')
+                  ->setIcon(value: 'heroicon-o-user')
+                  ->setSort(value: 10)
+                  ->shouldShowDeleteAccountForm (value: true)
+                  // ->shouldShowBrowserSessionsForm()
+                  ->shouldShowAvatarForm(),
             ])
             ->font('Helvetica')
             ->favicon(asset('storage/images/Logo-KPB.png'))

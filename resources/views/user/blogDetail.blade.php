@@ -23,7 +23,7 @@
             </h1>
             <address class="flex items-center mb-6 not-italic">
                 <div class="inline-flex items-center mr-3 text-sm text-gray-900">
-                    <img class="mr-4 w-12 h-12 rounded-full" alt="Triadi Adnyani" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKR37rcD-Efedtkrw_Ag-gousr8B7pNcOog&s" alt="{{ $blog->author }}">
+                    <img class="mr-4 w-12 h-12 rounded-full" alt="profile" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQq0H0bJLAd7DqBx8whulYKSJUb_gKCQHoGlHyTVn_ssHs0dFAvV1b7ccSm7lwEQkT_pysCDIRLhu0069McN4sLGaFEYd5PQnjJjJVvrpwtQ_W0MKpY2OfBHSh0smdqvTws9Jz3Kwvy5o/s1600/kader_pelestari_budaya_kabupaten_gianyar.png" alt="{{ $blog->author }}">
                     <div>
                         <a href="#" rel="author" class="text-base font-bold text-gray-900">{{ $blog->author }}</a>
                         <p class="text-base text-gray-500"><time pubdate datetime="{{ $blog->created_at->toDateString() }}">{{ $blog->created_at->format('M d, Y') }}</time></p>
@@ -61,7 +61,7 @@
                       <div class="flex items-center">
                           <img
                               alt="{{ $item->author }}"
-                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKR37rcD-Efedtkrw_Ag-gousr8B7pNcOog&s"
+                              src="{{ asset('storage/images/Logo-KPB-black.png') }}"
                               class="relative inline-block h-8 w-8 rounded-full object-cover"
                           />
                           <div class="flex flex-col ml-3 text-sm">

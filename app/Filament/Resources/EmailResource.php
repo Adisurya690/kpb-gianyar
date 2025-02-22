@@ -24,7 +24,7 @@ class EmailResource extends Resource
 
     protected static ?string $pluralModelLabel = "Email Admin";
 
-    protected static ?string $navigationGroup = "Manajemen Pengguna";
+    // protected static ?string $navigationGroup = "Manajemen Pengguna";
 
     public static function form(Form $form): Form
     {

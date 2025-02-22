@@ -7,6 +7,7 @@ use App\Filament\Resources\KebudayaanResource\RelationManagers;
 use App\Models\Kebudayaan;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -56,17 +57,19 @@ class KebudayaanResource extends Resource
                     'Tak Benda' => 'Tak Benda',
                 ])
                 ->native(false),
-              FileUpload::make('featured_image')
-                ->label('Gambar')
-                ->image()
-                // ->multiple()
-                ->directory('kebudayaan_images')
-                ->visibility('public')
-                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file) {
-                  $uniqueName = Str::uuid();
-                  $extension = $file->getClientOriginalExtension();         
-                  return "{$uniqueName}." . strtolower($extension);
-                }),
+                Repeater::make('images') // Relasi ke tabel kebudayaan_images
+                ->label('Gambar Kebudayaan')
+                ->relationship('images') // Hubungkan dengan tabel kebudayaan_images
+                ->schema([
+                    FileUpload::make('path') // Kolom 'path' di kebudayaan_images
+                        ->label('Upload Gambar')
+                        ->image()
+                        ->disk('public')
+                        ->directory('kebudayaan_images') // Simpan di folder storage/app/public/kebudayaan_images
+                        ->visibility('public')
+                        ->getUploadedFileNameForStorageUsing(fn ($file) => Str::uuid() . '.' . $file->getClientOriginalExtension())
+                ])
+                ->columns(2), // Tampilkan dalam 2 kolom biar rapi
               RichEditor::make('description')
                 ->label('Deskripsi')
                 ->required()
@@ -101,23 +104,22 @@ class KebudayaanResource extends Resource
     {
         return $table
             ->columns([
+              ImageColumn::make('images')
+                ->label('Gambar')
+                ->getStateUsing(fn ($record) => $record->images->pluck('path')->map(fn ($path) => asset('storage/' . $path))->toArray()) // Ambil semua gambar
+                ->stacked() // Agar gambar ditampilkan secara vertikal
+                ->limit(3), // Batas jumlah gambar yang ditampilkan
               TextColumn::make('name')
                 ->label('Nama Kebudayaan'),
               TextColumn::make('location')
                 ->label('Lokasi'),
-              // TextColumn::make('featured_image'),
-              ImageColumn::make('featured_image')
-                ->label('Gambar')
-                ->stacked()
-                ->limit(3)
-                ->limitedRemainingText(),
               TextColumn::make('description')
                 ->label('Deskripsi')
                 ->limit(20),
-              TextColumn::make('meta_title'),
-              TextColumn::make('meta_keyword'),
-              TextColumn::make('meta_description')
-                ->limit(20),
+              // TextColumn::make('meta_title'),
+              // TextColumn::make('meta_keyword'),
+              // TextColumn::make('meta_description')
+              //   ->limit(20),
             ])
             ->filters([
                 //

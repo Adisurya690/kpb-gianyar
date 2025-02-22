@@ -92,10 +92,10 @@
 
   {{-- Modal --}}
   <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden flex justify-center items-center">
-      <div class="bg-white p-1 rounded-lg w-96 max-w-sm">
-          <button id="closeModal" class="absolute top-2 right-2 text-gray-600">X</button>
-          @include('user.laporBudaya') {{-- Include Form --}}
-      </div>
+    <div class="bg-white p-4 rounded-lg w-96 max-w-sm relative">
+        <button id="closeModal" class="absolute top-2 right-2 text-gray-600">X</button>
+        @include('user.laporBudaya') {{-- Include Form --}}
+    </div>
   </div>
 
   {{-- Footer --}}
@@ -103,36 +103,52 @@
 
 </body>
 
-{{-- home.blade.php (di bawah modal) --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
-  // Cek apakah user sudah login atau belum
-  const isLoggedIn = @auth true @else false @endauth;
+    // Cek apakah user sudah login dan berasal dari tabel `users` atau `internals`
+    const userRole = @json(Auth::guard('web')->check() ? 'user' : (Auth::guard('internal')->check() ? 'internal' : null));
 
-  // Ambil element tombol dan modal
-  const floatingButton = document.getElementById('floatingButton');
-  const modal = document.getElementById('modal');
-  const closeModal = document.getElementById('closeModal');
+    // Ambil element tombol dan modal
+    const floatingButton = document.getElementById('floatingButton');
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
 
-  // Fungsi untuk membuka modal
-  floatingButton.addEventListener('click', () => {
-      if (isLoggedIn) {
-          modal.classList.remove('hidden'); // Menampilkan modal jika user login
-      } else {
-          alert("Anda harus login terlebih dahulu untuk melaporkan"); // Menampilkan alert jika belum login
-      }
-  });
+    // Fungsi untuk membuka modal
+    floatingButton.addEventListener('click', () => {
+        if (userRole === "user" || userRole === "internal") {
+            modal.classList.remove('hidden'); // Menampilkan modal jika user atau internal login
+        } else {
+          Swal.fire({
+              title: "Akses Ditolak!",
+              text: "Anda harus login terlebih dahulu untuk melaporkan.",
+              icon: "warning",
+              confirmButtonText: "Login",
+              showCancelButton: true,
+              cancelButtonText: "Batal",
+              customClass: {
+                  confirmButton: "bg-red-700 text-white px-4 py-2 rounded-lg", // Tombol login warna merah
+                  cancelButton: "bg-gray-100 text-red-700 px-4 py-2 rounded-lg" // Tombol batal warna abu-abu
+              }
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  window.location.href = "{{ route('login') }}"; // Redirect ke halaman login
+              }
+          });
+        }
+    });
 
-  // Fungsi untuk menutup modal
-  closeModal.addEventListener('click', () => {
-      modal.classList.add('hidden'); // Menyembunyikan modal
-  });
+    // Fungsi untuk menutup modal
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden'); // Menyembunyikan modal
+    });
 
-  // Jika klik di luar modal, modal juga akan ditutup
-  window.addEventListener('click', (event) => {
-      if (event.target === modal) {
-          modal.classList.add('hidden');
-      }
-  });
+    // Jika klik di luar modal, modal juga akan ditutup
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
 </script>
 
 

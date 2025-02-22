@@ -37,7 +37,8 @@ class ReportController extends Controller
       $data = $request->validate([
         'name' => 'required|string',
         'location' => 'required|string',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        'images' => 'required|array|max:3', // Maksimal 3 file
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:5120', // Maksimal 5 MB per file
         'description' => 'required|string',
       ]);
 
@@ -46,19 +47,36 @@ class ReportController extends Controller
       $report->name = $request->name;
       $report->location = $request->location;
       $report->description = $request->description;
-      $report->reporter = Auth::user()->name; // Ambil nama user yang login
+      if (Auth::guard('web')->check()) {
+          $report->reporter = Auth::guard('web')->user()->name; // Dari tabel users
+      } elseif (Auth::guard('internal')->check()) {
+          $report->reporter = Auth::guard('internal')->user()->name; // Dari tabel internals
+      }
       $report->status = 'Laporan Dikirim'; // Status default
       $report->save();
 
-      // Jika ada gambar, simpan ke storage
-      if ($request->hasFile('image')) {
-          $path = $request->file('image')->store('lapor_image', 'public');
-          $report->image = $path;
-          $report->save();
-      }
+      // Simpan gambar
+      if ($request->hasFile('images')) {
+          foreach ($request->file('images') as $image) {
+              $path = $image->store('lapor_images', 'public'); // Simpan di storage/app/public/lapor_images
+      
+              // Cek apakah gambar dengan path ini sudah ada
+              $exists = $report->images()->where('path', $path)->exists();
+      
+              if (!$exists) {
+                  $report->images()->create([
+                      'path' => $path,
+                  ]);
+              }
+          }
+      }    
 
       // Menambahkan informasi lainnya
-      $data['reporter'] = Auth::user()->name;
+      if (Auth::guard('web')->check()) {
+          $data['reporter'] = Auth::guard('web')->user()->name; // Dari tabel users
+      } elseif (Auth::guard('internal')->check()) {
+          $data['reporter'] = Auth::guard('internal')->user()->name; // Dari tabel internals
+      } 
       $data['status'] = 'Laporan Dikirim';
 
       // Kirim email ke admin dan user
@@ -68,17 +86,33 @@ class ReportController extends Controller
       }
 
       // Kirim email ke user (pelapor)
-      Mail::to(Auth::user()->email)->send(new ReportSubmittedMailUser($report));
+      if (Auth::guard('web')->check()) {
+          $email = Auth::guard('web')->user()->email; // Email dari tabel users
+      } elseif (Auth::guard('internal')->check()) {
+          $email = Auth::guard('internal')->user()->email; // Email dari tabel internals
+      }
+      
+      Mail::to($email)->send(new ReportSubmittedMailUser($report));    
 
       return redirect()->route('kebudayaan')->with('success', 'Laporan berhasil dikirim.');
     }
 
     public function showStatus()
     {
-        // Mengambil laporan yang terkait dengan user yang login dan relasi statusHistories
-        $reports = Lapor::where('reporter', Auth::user()->name)->with('statusHistories')->get();
-        return view('user.statusLapor', compact('reports'));
+        $user = Auth::user();
+
+        if ($user instanceof \App\Models\User || $user instanceof \App\Models\Internal) {
+            // Mengambil laporan berdasarkan nama pelapor dari tabel `users` atau `internals`
+            $reports = Lapor::where('reporter', $user->name)
+                            ->with('statusHistories')
+                            ->get();
+
+            return view('user.statusLapor', compact('reports'));
+        }
+
+        return abort(403, 'Unauthorized'); // Jika tidak ada user yang login
     }
+
 
     /**
      * Display the specified resource.

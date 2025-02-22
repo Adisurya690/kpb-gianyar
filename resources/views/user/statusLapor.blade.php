@@ -14,7 +14,7 @@
   @include('partials.navbar') 
 
   {{-- Main Content --}}
-    <div class="container mx-auto py-8">
+    <div class="container mx-auto py-8 min-h-screen">
       <h1 class="text-2xl font-bold mb-4">Status Laporan Kebudayaan</h1>
 
       @forelse ($reports as $report)

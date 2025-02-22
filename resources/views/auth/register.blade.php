@@ -66,123 +66,88 @@
             <a href="{{ route('login') }}" class="text-red-700 underline">Masuk</a>.
           </p>
           <form method="POST" action="{{ route('register') }}" class="mt-8 grid grid-cols-6 gap-6">
-            @csrf
-            <div class="col-span-6 sm:col-span-3">
-              <label for="name" class="block text-sm font-medium text-gray-700">
-                Nama Lengkap
-              </label>
-  
-              <input
-                type="text"
-                id="name"
-                name="name"
-                {{-- value="{{ old('name') }}" --}}
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                required autofocus
-              />
-            </div>
-  
-            <div class="col-span-6 sm:col-span-3">
-              <label for="fullname" class="block text-sm font-medium text-gray-700">
-                Nama Panggilan
-              </label>
-  
-              <input
-                type="text"
-                id="nickname"
-                name="nickname"
-                {{-- value="{{ old('fullname') }}" --}}
-                required
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-              />
-            </div>
-  
-            <div class="col-span-6 sm:col-span-3">
-              <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
-  
-              <input
-                type="email"
-                id="email"
-                name="email"
-                {{-- value="{{ old('email') }}" --}}
-                required
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-              />
-            </div>
-
-            <div class="col-span-6 sm:col-span-3">
-              <label for="phone_number" class="block text-sm font-medium text-gray-700"> No Telepon </label>
-  
-              <input
-                type="text"
-                id="phone_number"
-                name="phone_number"
-                {{-- value="{{ old('phone_number') }}" --}}
-                required
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-              />
-            </div>
-  
-            <div class="col-span-6 sm:col-span-3">
-              <label for="password" class="block text-sm font-medium text-gray-700"> Kata Sandi </label>
-  
-              <input
-                type="password"
-                id="password"
-                name="password"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                required
-              />
-            </div>
-  
-            <div class="col-span-6 sm:col-span-3">
-              <label for="password_confirmation" class="block text-sm font-medium text-gray-700">
-                Konfirmasi Kata Sandi
-              </label>
-  
-              <input
-                type="password"
-                id="password_confirmation"
-                name="password_confirmation"
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                required
-              />
-            </div>
-
-            <div class="col-span-6 sm:col-span-3">
-              <label for="address" class="block text-sm font-medium text-gray-700"> Alamat </label>
-  
-              <textarea
-                type="text"
-                id="address"
-                name="address"
-                {{-- value="{{ old('address') }}" --}}
-                required
-                class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-              ></textarea>
-            </div>
-  
-            <div class="col-span-6">
-              <p class="text-sm text-gray-500">
-                Dengan membuat akun, Anda menyetujui
-                <a href="#" class="text-red-700 underline"> syarat dan ketentuan </a>
-                dan
-                <a href="#" class="text-red-700 underline">kebijakan privasi</a> kami.
-              </p>
-            </div>
-  
-            <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-              <button
-                class="inline-block shrink-0 rounded-md border px-12 py-3 text-sm bg-red-600 hover:bg-red-700 font-medium text-white transition focus:outline-none focus:ring active:text-blue-500"
-                type="submit"
-              >
-                Daftar
-              </button>
-            </div>
+              @csrf
+          
+              <!-- Nama Lengkap -->
+              <div class="col-span-6 sm:col-span-3">
+                  <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                  <input type="text" id="name" name="name" required autofocus
+                      class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"/>
+              </div>
+          
+              <!-- Nama Panggilan -->
+              <div class="col-span-6 sm:col-span-3">
+                  <label for="nickname" class="block text-sm font-medium text-gray-700">Nama Panggilan</label>
+                  <input type="text" id="nickname" name="nickname" required
+                      class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"/>
+              </div>
+          
+              <!-- Email -->
+              <div class="col-span-6 sm:col-span-3">
+                  <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                  <input type="email" id="email" name="email" required onblur="checkEmail()"
+                      class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"/>
+                  <p id="email-alert" class="text-red-500 text-sm mt-1"></p>
+              </div>
+          
+              <!-- No Telepon -->
+              <div class="col-span-6 sm:col-span-3">
+                  <label for="phone_number" class="block text-sm font-medium text-gray-700">No Telepon</label>
+                  <input type="text" id="phone_number" name="phone_number" required
+                      class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"/>
+              </div>
+          
+              <!-- Kata Sandi -->
+              <div class="col-span-6 sm:col-span-3">
+                  <label for="password" class="block text-sm font-medium text-gray-700">Kata Sandi</label>
+                  <input type="password" id="password" name="password" required onkeyup="validatePassword()"
+                      class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"/>
+              </div>
+          
+              <!-- Konfirmasi Kata Sandi -->
+              <div class="col-span-6 sm:col-span-3">
+                  <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Konfirmasi Kata Sandi</label>
+                  <input type="password" id="password_confirmation" name="password_confirmation" required onkeyup="validatePassword()"
+                      class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"/>
+                  <p id="password-alert" class="text-red-500 text-sm mt-1"></p>
+              </div>
+          
+              <!-- Alamat -->
+              <div class="col-span-6">
+                  <label for="address" class="block text-sm font-medium text-gray-700">Alamat</label>
+                  <textarea id="address" name="address" required
+                      class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"></textarea>
+              </div>
+          
+              <!-- Tombol Daftar -->
+              <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+                  <button type="submit" id="register-btn" disabled
+                      class="inline-block shrink-0 rounded-md border px-12 py-3 text-sm bg-red-600 hover:bg-red-700 font-medium text-white transition focus:outline-none focus:ring active:text-blue-500">
+                      Daftar
+                  </button>
+              </div>
           </form>
         </div>
       </main>
     </div>
   </section>
 </body>
+
+<!-- JavaScript untuk Validasi -->
+<script>
+    function validatePassword() {
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("password_confirmation").value;
+        let passwordAlert = document.getElementById("password-alert");
+        let registerBtn = document.getElementById("register-btn");
+
+        if (password !== confirmPassword) {
+            passwordAlert.innerText = "❌ Kata sandi tidak cocok!";
+            registerBtn.disabled = true;
+        } else {
+            passwordAlert.innerText = "";
+            registerBtn.disabled = false;
+        }
+    }
+</script>
 </html>

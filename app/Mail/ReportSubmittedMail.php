@@ -30,7 +30,7 @@ class ReportSubmittedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Report Submitted Mail',
+            subject: 'Lapor Budaya Kabupaten Gianyar',
         );
     }
 

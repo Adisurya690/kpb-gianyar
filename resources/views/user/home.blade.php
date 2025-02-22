@@ -8,6 +8,23 @@
   @vite(['resources/css/app.css','resources/js/app.js'])
   <link rel="icon" href="{{ asset('storage/images/Logo-KPB.png') }}" type="image/png">
   <title>KPB Gianyar</title>
+  <style>
+      @keyframes floating {
+          0% {
+              top: -40px;
+          }
+          50% {
+              top: -60px;
+          }
+          100% {
+              top: -40px;
+          }
+      }
+
+      .floating-img {
+          animation: floating 3s ease-in-out infinite;
+      }
+  </style>
 </head>
 <body>
   {{-- Header --}}
@@ -23,6 +40,11 @@
           Kader Pelestari Budaya Kabupaten Gianyar adalah lembaga sosial yang bergerak di bidang pendidikan pelestarian budaya dan pengembangan potensi bagi generasi muda di Kabupaten Gianyar
         </p>
       </div>
+      <div class="hidden lg:mt-0 lg:col-span-5 lg:flex relative" style="width: 100%; height: 500px;">
+          <img class="lg:ml-24 absolute z-10 floating-img" src="{{ asset('storage/images/lingga-yoni.png') }}" alt="lingga yoni" style="max-width: 100%; height: auto;">
+          <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/images/blob1.gif') }}" alt="blob" style="opacity: 0.7; width: 94%; height: auto; top: -50px;">
+          <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/images/blob2.gif') }}" alt="blob" style="opacity: 0.6; width: 99%; height: auto; top: -50px;">
+      </div>            
     </div>
   </section>  
   
