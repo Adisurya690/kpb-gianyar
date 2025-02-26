@@ -45,7 +45,7 @@
                 Edit
             </a>
             
-            <form method="POST" action="{{ route('logout') }}" class="flex mx-auto">
+            <form method="POST" action="{{ Auth:: guard('web')->check() ? route('logout') : route('internal.logout') }}" class="flex mx-auto">
                 @csrf
                 <button type="submit" 
                     class="block rounded-full bg-white border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white hover:shadow-lg font-semibold px-6 py-2">

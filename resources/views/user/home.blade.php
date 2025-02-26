@@ -85,7 +85,10 @@
         <div class="mr-auto place-self-center lg:col-span-7">
           <h1 class="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-5xl">KPB Gianyar</h1>
           <p class="max-w-2xl mb-1 font-light text-gray-500 lg:mb-4 md:text-lg lg:text-xl">Lembaga Sosial yang bergerak di bidang Pendidikan Pelestarian Budaya bagi generasi muda di kab. Gianyar.</p>
-          <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center">Tentang Kami</button>
+          <a href="{{ route('tentang') }}" 
+              class="text-red-700 bg-white border border-red-700 hover:bg-red-50 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center">
+              Tentang Kami
+          </a>             
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
           <div class="relative w-full h-64 overflow-hidden rounded-lg">
@@ -131,7 +134,7 @@
                             />
                             <div class="flex flex-col">
                                 <span class="text-slate-800 font-semibold">{{ $blog->author }}</span>
-                                <span class="text-slate-600">{{ $blog->created_at->format('F d, Y') }}</span>
+                                <span class="text-slate-600">{{ $blog->created_at->translatedFormat('d F Y') }}</span>
                             </div>
                         </div>
                     </div>
@@ -141,10 +144,10 @@
     </div>
 
     <div class="flex items-center justify-center">
-        <a href="{{ route('blog') }}" 
-          class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center">
-            Baca Artikel Lainnya
-        </a>
+      <a href="{{ route('blog') }}" 
+          class="text-red-700 bg-white border border-red-700 hover:bg-red-50 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-4 py-2 text-center">
+          Baca Artikel Lainnya
+      </a>  
     </div>
   </div>
 
