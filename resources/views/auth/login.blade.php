@@ -90,7 +90,7 @@
             <label for="Email" class="block text-sm font-medium text-gray-700"> Email </label>
 
             <input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" 
-            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"/>
+            class="mt-1 w-full rounded-md border-gray-200 bg-white text-md text-gray-700 shadow-sm"/>
 
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
           </div>
