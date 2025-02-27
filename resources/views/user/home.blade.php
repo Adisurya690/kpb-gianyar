@@ -145,7 +145,7 @@
                       <a class="block" href="{{ route('blogDetail', $blog->slug) }}">
                           <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg w-80 sm:w-96 transform hover:bg-gray-100 transition-all">
                               <div class="relative h-48 sm:h-56 m-2.5 overflow-hidden text-white rounded-md">
-                                  <img src="{{ asset('storage/' . $blog->featured_image) }}" alt="{{ $blog->title }}" class="object-cover w-full h-full">
+                                  <img src="{{ asset('storage/app/public/' . $blog->featured_image) }}" alt="{{ $blog->title }}" class="object-cover w-full h-full">
                               </div>
                               <div class="p-4">
                                   <div class="mb-4 inline-block rounded-full bg-red-700 py-0.5 px-2.5 text-xs text-white shadow-sm text-center">
