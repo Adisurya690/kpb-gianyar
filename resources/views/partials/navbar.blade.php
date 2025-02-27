@@ -2,7 +2,7 @@
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <!-- Logo dan Nama Website -->
     <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="{{ asset('storage/app/public/images/logo-KPB.png')}}" class="h-8" alt="Logo KPB Gianyar">
+      <img src="{{ asset('storage/images/logo-KPB.png')}}" class="h-8 lg:mr-0" alt="Logo KPB Gianyar">
       <span class="self-center text-2xl font-semibold whitespace-nowrap">KPB Gianyar</span>
     </a>
 
@@ -70,7 +70,7 @@
     <!-- Menu Navigasi (Hanya Tampil di Desktop) -->
     <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-sticky">
       <ul class="flex flex-col p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white">
-        <li>
+        <li class="lg:mr-0">
           <a href="{{ route('home') }}" 
             class="block py-2 px-3 rounded lg:p-0 relative 
                     {{ Request::is('/') ? 'text-white lg:text-red-700' : 'text-gray-900 lg:hover:text-red-700 lg:dark:hover:text-red-500' }}
