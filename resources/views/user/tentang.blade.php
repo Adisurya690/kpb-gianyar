@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-  @vite(['resources/css/app.css','resources/js/app.js'])
+  @php
+      $isProduction = app()->environment('production');
+      $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
+  @endphp
+
+  @if ($isProduction && file_exists($manifestPath))
+      @php
+          $manifest = json_decode(file_get_contents($manifestPath), true);
+      @endphp
+      <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
+      <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
+  @else
+      @viteReactRefresh
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+      <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="{{ asset('storage/images/Logo-KPB.png') }}" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  @endif
   <title>KPB Gianyar</title>
 </head>
 <body>
@@ -54,14 +73,14 @@
               <div class="w-full sm:grid sm:grid-cols-2 flex flex-row justify-center items-start gap-6 lg:order-first order-last">
                   <!-- Gambar Kiri -->
                   <div class="flex justify-center items-center translate-y-2 sm:translate-y-0">
-                      <img class="rounded-xl object-cover sm:w-auto w-[150px] w-full" 
+                      <img class="rounded-xl object-cover sm:w-auto w-[150px] h-full" 
                           src="{{ asset('storage/images/pura.jpg') }}" 
                           alt="about Us image" />
                   </div>
                   
                   <!-- Gambar Kanan -->
                   <div class="-translate-y-2 sm:translate-y-0">
-                      <img class="rounded-xl object-cover sm:w-auto w-[150px] w-full" 
+                      <img class="rounded-xl object-cover sm:w-auto w-[150px] h-full" 
                           src="{{ asset('storage/images/tabus.jpg') }}" 
                           alt="about Us image" />
                   </div>
@@ -117,24 +136,24 @@
                           <div class="w-full justify-start items-center gap-8 grid md:grid-cols-2 grid-cols-1">
                               <div
                                   class="w-full h-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-100 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
-                                  <h4 class="text-gray-900 text-2xl font-bold font-manrope leading-9">Rekonstruksi Tari Rejang Ilud</h4>
+                                  <h4 class="text-gray-900 text-xl sm:text-2xl font-bold font-manrope leading-9">Rekonstruksi Tari Rejang Ilud</h4>
                                   <p class="text-gray-500 text-base font-normal leading-relaxed">Tari Rejang Ilud Buahan ditetapkan sebagai WBTB Nasional pada 2021.</p>
                               </div>
                               <div
                                   class="w-full h-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-100 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
-                                  <h4 class="text-gray-900 text-2xl font-bold font-manrope leading-9">Penghargaan Pelestarian Budaya</h4>
+                                  <h4 class="text-gray-900 text-xl sm:text-2xl font-bold font-manrope leading-9">Penghargaan Pelestarian Budaya</h4>
                                   <p class="text-gray-500 text-base font-normal leading-relaxed">Meraih Penghargaan 2018 atas pelestarian cagar budaya dari Kemendikbud dan IAAI.</p>
                               </div>
                           </div>
                           <div class="w-full h-full justify-start items-center gap-8 grid md:grid-cols-2 grid-cols-1">
                               <div
                                   class="w-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-100 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
-                                  <h4 class="text-gray-900 text-2xl font-bold font-manrope leading-9">Revitalisasi Tari Baris Irengan</h4>
+                                  <h4 class="text-gray-900 text-xl sm:text-2xl font-bold font-manrope leading-9">Revitalisasi Tari Baris Irengan</h4>
                                   <p class="text-gray-500 text-base font-normal leading-relaxed">Melestarikan Tari Baris Irengan melalui program revitalisasi untuk menjaga warisan budaya.</p>
                               </div>
                               <div
                                   class="w-full h-full p-3.5 rounded-xl border border-gray-200 hover:border-gray-400 transition-all duration-100 ease-in-out flex-col justify-start items-start gap-2.5 inline-flex">
-                                  <h4 class="text-gray-900 text-2xl font-bold font-manrope leading-9">Pembersihan Candi Tebing</h4>
+                                  <h4 class="text-gray-900 text-xl sm:text-2xl font-bold font-manrope leading-9">Pembersihan Candi Tebing</h4>
                                   <p class="text-gray-500 text-base font-normal leading-relaxed">Pelestarian Candi Tebing melalui kegiatan pembersihan dan perawatan berkala.</p>
                               </div>
                           </div>

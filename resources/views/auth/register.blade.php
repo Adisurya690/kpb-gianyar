@@ -34,9 +34,8 @@
             KPB Gianyar
           </h2>
   
-          <p class="mt-4 leading-relaxed text-white/90">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-            quibusdam aperiam voluptatum.
+          <p class="leading-relaxed text-white/90">
+            Daftar sekarang untuk bergabung dan berperan dalam menjaga warisan budaya bersama KPB Gianyar.
           </p>
         </div>
       </section>
