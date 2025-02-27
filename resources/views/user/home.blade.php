@@ -55,9 +55,9 @@
     <div class="absolute inset-0 bg-gradient-to-r from-white/100 to-transparent"></div>
     <div class="relative mx-auto max-w-screen-xl px-4 pt-28 pb-12 sm:py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
       <div class="sm:hidden relative mt-12 mb-8" style="width: 100%; height: 300px;">
-        <img class="lg:ml-24 absolute z-10 floating-img" src="{{ asset('storage/images/lingga-yoni.png') }}" alt="lingga yoni" style="max-width: 100%; height: auto;">
-        <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/images/blob1.gif') }}" alt="blob" style="opacity: 0.7; width: 94%; height: auto; top: -50px;">
-        <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/images/blob2.gif') }}" alt="blob" style="opacity: 0.6; width: 99%; height: auto; top: -50px;">
+        <img class="lg:ml-24 absolute z-10 floating-img" src="{{ asset('storage/app/public/images/lingga-yoni.png') }}" alt="lingga yoni" style="max-width: 100%; height: auto;">
+        <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/app/public/images/blob1.gif') }}" alt="blob" style="opacity: 0.7; width: 94%; height: auto; top: -50px;">
+        <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/app/public/images/blob2.gif') }}" alt="blob" style="opacity: 0.6; width: 99%; height: auto; top: -50px;">
       </div>
       <div class="max-w-xl text-center sm:text-left">
         <h1 class="text-5xl font-extrabold text-7xl text-red-700">KPB Gianyar</h1>
@@ -145,7 +145,7 @@
                       <a class="block" href="{{ route('blogDetail', $blog->slug) }}">
                           <div class="relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg w-80 sm:w-96 transform hover:bg-gray-100 transition-all">
                               <div class="relative h-48 sm:h-56 m-2.5 overflow-hidden text-white rounded-md">
-                                  <img src="{{ asset('storage/app/public/' . $blog->featured_image) }}" alt="{{ $blog->title }}" class="object-cover w-full h-full">
+                                  <img src="{{ asset('storage/' . $blog->featured_image) }}" alt="{{ $blog->title }}" class="object-cover w-full h-full">
                               </div>
                               <div class="p-4">
                                   <div class="mb-4 inline-block rounded-full bg-red-700 py-0.5 px-2.5 text-xs text-white shadow-sm text-center">
