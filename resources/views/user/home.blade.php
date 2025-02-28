@@ -5,25 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-  @php
-      $isProduction = app()->environment('production');
-      $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
-  @endphp
-
-  @if ($isProduction && file_exists($manifestPath))
-      @php
-          $manifest = json_decode(file_get_contents($manifestPath), true);
-      @endphp
-      <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
-      <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
-  @else
-      @viteReactRefresh
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-      <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  @endif
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  <style>
+    body {
+        font-family: Helvetica, Arial, sans-serif;
+    }
+  </style>
   <link rel="icon" href="{{ asset('storage/images/Logo-KPB.png') }}" type="image/png">
   <title>KPB Gianyar</title>
   <style>
@@ -45,11 +36,6 @@
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <style>
-    body {
-        font-family: Helvetica, Arial, sans-serif;
-    }
-  </style>
 </head>
 <body>
   {{-- Header --}}
@@ -60,20 +46,20 @@
     <div class="absolute inset-0 bg-gradient-to-r from-white/100 to-transparent"></div>
     <div class="relative mx-auto max-w-screen-xl px-4 pt-28 pb-12 sm:py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
       <div class="sm:hidden relative mt-12 mb-8" style="width: 100%; height: 300px;">
-        <img class="lg:ml-24 absolute z-10 floating-img" src="{{ asset('storage/app/public/images/lingga-yoni.png') }}" alt="lingga yoni" style="max-width: 100%; height: auto;">
-        <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/app/public/images/blob1.gif') }}" alt="blob" style="opacity: 0.7; width: 94%; height: auto; top: -50px;">
-        <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/app/public/images/blob2.gif') }}" alt="blob" style="opacity: 0.6; width: 99%; height: auto; top: -50px;">
+        <img class="lg:ml-24 absolute z-10 floating-img" src="{{ asset('public/storage/images/lingga-yoni.png') }}" alt="lingga yoni" style="max-width: 100%; height: auto;">
+        <img class="lg:ml-24 absolute z-0" src="{{ asset('public/storage/images/blob1.gif') }}" alt="blob" style="opacity: 0.7; width: 94%; height: auto; top: -50px;">
+        <img class="lg:ml-24 absolute z-0" src="{{ asset('public/storage/images/blob2.gif') }}" alt="blob" style="opacity: 0.6; width: 99%; height: auto; top: -50px;">
       </div>
       <div class="max-w-xl text-center sm:text-left">
-        <h1 class="text-5xl font-extrabold text-7xl text-red-700">KPB Gianyar</h1>
+        <h1 class="text-5xl font-extrabold sm:text-7xl text-red-700">KPB Gianyar</h1>
         <p class="mt-4 sm:text-xl">
           Kader Pelestari Budaya Kabupaten Gianyar adalah lembaga sosial yang bergerak di bidang pendidikan pelestarian budaya dan pengembangan potensi bagi generasi muda di Kabupaten Gianyar
         </p>
       </div>
       <div class="hidden lg:mt-0 lg:col-span-5 lg:flex relative lg:mr-12" style="width: 100%; height: 500px;">
-          <img class="lg:ml-24 absolute z-10 floating-img" src="{{ asset('storage/app/public/images/lingga-yoni.png') }}" alt="lingga yoni" style="max-width: 100%; height: auto;">
-          <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/app/public/images/blob1.gif') }}" alt="blob" style="opacity: 0.7; width: 94%; height: auto; top: -50px;">
-          <img class="lg:ml-24 absolute z-0" src="{{ asset('storage/app/public/images/blob2.gif') }}" alt="blob" style="opacity: 0.6; width: 99%; height: auto; top: -50px;">
+          <img class="lg:ml-24 absolute z-10 floating-img" src="{{ asset('public/storage/images/lingga-yoni.png') }}" alt="lingga yoni" style="max-width: 100%; height: auto;">
+          <img class="lg:ml-24 absolute z-0" src="{{ asset('public/storage/images/blob1.gif') }}" alt="blob" style="opacity: 0.7; width: 94%; height: auto; top: -50px;">
+          <img class="lg:ml-24 absolute z-0" src="{{ asset('public/storage/images/blob2.gif') }}" alt="blob" style="opacity: 0.6; width: 99%; height: auto; top: -50px;">
       </div>            
     </div>
   </section>  
