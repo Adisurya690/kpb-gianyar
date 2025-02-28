@@ -57,7 +57,7 @@
               @foreach ($otherBlogs as $item)
               <article class="max-w-xs bg-white p-2 rounded-lg shadow-lg">
                   <a href="{{ route('blogDetail', $item->slug) }}">
-                      <img src="{{ asset('storage/' . $item->featured_image) }}" class="mb-2 rounded-lg" alt="{{ $item->title }}">
+                      <img src="{{ asset('storage/' . $item->featured_image) }}" class="mb-2 rounded-lg w-full aspect-[3/2] object-cover" alt="{{ $item->title }}">
                   </a>
                   <div class="mb-2 inline-block rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm text-center">
                       Kebudayaan
