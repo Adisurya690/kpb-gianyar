@@ -65,7 +65,7 @@
                   <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900">
                       <a href="{{ route('blogDetail', $item->slug) }}">{{ $item->title }}</a>
                   </h2>
-                  <p class="mb-4 text-gray-500">{{ Str::limit(strip_tags($item->content), 99, '...') }}</p>
+                  <p class="mb-4 text-gray-500">{{ Str::limit(strip_tags($item->content), 90, '...') }}</p>
                   <div class="flex items-center justify-between">
                       <div class="flex items-center">
                           <img
