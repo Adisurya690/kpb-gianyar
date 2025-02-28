@@ -70,7 +70,7 @@
                       <div class="flex items-center">
                           <img
                               alt="{{ $item->author }}"
-                              src="{{ asset('storage/images/Logo-KPB-black.png') }}"
+                              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQq0H0bJLAd7DqBx8whulYKSJUb_gKCQHoGlHyTVn_ssHs0dFAvV1b7ccSm7lwEQkT_pysCDIRLhu0069McN4sLGaFEYd5PQnjJjJVvrpwtQ_W0MKpY2OfBHSh0smdqvTws9Jz3Kwvy5o/s1600/kader_pelestari_budaya_kabupaten_gianyar.png"
                               class="relative inline-block h-8 w-8 rounded-full object-cover"
                           />
                           <div class="flex flex-col ml-3 text-sm">
