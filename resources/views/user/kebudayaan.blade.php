@@ -59,7 +59,7 @@
   <div class="flex justify-center flex-wrap">
     @forelse ($kebudayaan as $item)
       <a class="px-3" href="{{ route('kebudayaan.detail', $item->slug) }}">
-        <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 hover:bg-gray-100 hover:scale-105 transition-all">
+        <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 hover:bg-gray-100 hover:scale-[1.02] transition-all">
           <div class="relative h-56 m-2.5 overflow-hidden rounded-md">
             <div class="absolute top-2 left-2 bg-red-700 py-0.5 px-2.5 text-xs text-white rounded-full">
               {{ $item->category }}

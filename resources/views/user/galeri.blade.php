@@ -60,7 +60,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         @forelse ($galleries as $gallery)
             <a href="{{ $gallery->link }}" target="_blank" 
-                class="max-w-sm bg-white border border-gray-100 rounded-lg shadow mx-auto transform hover:scale-105 hover:bg-gray-50 transition-all mb-6">
+                class="max-w-sm bg-white border border-gray-100 rounded-lg shadow mx-auto transform hover:scale-[1.02] hover:bg-gray-50 transition-all mb-6">
                 <img class="rounded-t-lg object-cover h-48 w-full transition-all" 
                     src="{{ asset('storage/' . $gallery->image) }}" 
                     alt="{{ $gallery->name }}" />
