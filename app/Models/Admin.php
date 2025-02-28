@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\HasAvatar;
 
-class Admin extends Authenticatable
+class Admin extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable;
 
@@ -33,7 +33,7 @@ class Admin extends Authenticatable
     {
         return $this->avatar ? Storage::url($this->avatar) : null;
     }
-
+    
     public function canAccessPanel(Panel $panel): bool
     {
         return str_ends_with($this->email, '@gmail.com');
