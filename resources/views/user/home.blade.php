@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+      <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+      <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
   <style>
     body {
         font-family: Helvetica, Arial, sans-serif;
     }
-  </style>
+    </style>
   <link rel="icon" href="{{ asset('storage/images/Logo-KPB.png') }}" type="image/png">
   <title>KPB Gianyar</title>
   <style>
@@ -152,7 +153,7 @@
                               <div class="flex items-center justify-between p-4">
                                   <div class="flex items-center">
                                       <img 
-                                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKR37rcD-Efedtkrw_Ag-gousr8B7pNcOog&s" 
+                                          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQq0H0bJLAd7DqBx8whulYKSJUb_gKCQHoGlHyTVn_ssHs0dFAvV1b7ccSm7lwEQkT_pysCDIRLhu0069McN4sLGaFEYd5PQnjJjJVvrpwtQ_W0MKpY2OfBHSh0smdqvTws9Jz3Kwvy5o/s1600/kader_pelestari_budaya_kabupaten_gianyar.png" 
                                           alt="{{ $blog->author }}" 
                                           class="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover mr-3"
                                       />

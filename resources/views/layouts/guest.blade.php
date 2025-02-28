@@ -26,16 +26,12 @@
         @else
             @viteReactRefresh
               <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-              <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+            <script src="https://cdn.tailwindcss.com"></script>
+          <link rel="icon" href="{{ asset('storage/images/Logo-KPB.png') }}" type="image/png">
           <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
           <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
           <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
         @endif
-        <style>
-          body {
-              font-family: Helvetica, Arial, sans-serif;
-          }
-        </style>
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">

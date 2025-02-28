@@ -1,7 +1,9 @@
 <head>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
   <style>
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        }
       .ts-control {
           border: 1px solid #e2e8f0 !important;
           border-radius: 0.25rem !important;

@@ -10,7 +10,7 @@
       <!-- Logo dan Nama Website -->
       <div class="mb-6 md:mb-0">
         <a href="/" class="flex items-center">
-          <img src="{{ asset('storage/images/logo-KPB.png')}}" class="h-8 me-3" alt="Logo KPB Gianyar" />
+          <img src="{{ asset('public/storage/images/Logo-KPB.png')}}" class="h-8 me-3" alt="Logo KPB Gianyar" />
           <span class="self-center text-2xl font-semibold whitespace-nowrap">KPB Gianyar</span>
         </a>
       </div>

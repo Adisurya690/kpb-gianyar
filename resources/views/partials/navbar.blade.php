@@ -2,7 +2,7 @@
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <!-- Logo dan Nama Website -->
     <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="{{ asset('storage/images/logo-KPB.png')}}" class="h-8 lg:mr-0" alt="Logo KPB Gianyar">
+      <img src="{{ asset('public/storage/images/Logo-KPB.png')}}" class="h-8 mr-0" alt="Logo KPB Gianyar">
       <span class="self-center text-2xl font-semibold whitespace-nowrap">KPB Gianyar</span>
     </a>
 
