@@ -82,7 +82,7 @@
                 <div class="flex items-center justify-between px-4 pb-4">
                     <div class="flex items-center">
                         <img 
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKR37rcD-Efedtkrw_Ag-gousr8B7pNcOog&s" 
+                            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQq0H0bJLAd7DqBx8whulYKSJUb_gKCQHoGlHyTVn_ssHs0dFAvV1b7ccSm7lwEQkT_pysCDIRLhu0069McN4sLGaFEYd5PQnjJjJVvrpwtQ_W0MKpY2OfBHSh0smdqvTws9Jz3Kwvy5o/s1600/kader_pelestari_budaya_kabupaten_gianyar.png" 
                             alt="{{ $blog->author }}" 
                             class="h-10 w-10 rounded-full object-cover mr-3"
                         />
