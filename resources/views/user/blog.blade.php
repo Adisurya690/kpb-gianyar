@@ -89,7 +89,7 @@
                         <div>
                             <span class="text-slate-800 font-semibold">{{ $blog->author }}</span>
                             <div class="text-slate-600 text-sm">
-                                {{ $blog->created_at->format('F d, Y') }}
+                              {{ $blog->created_at->translatedFormat('d F Y') }}
                             </div>
                         </div>
                     </div>
