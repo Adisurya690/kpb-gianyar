@@ -34,7 +34,7 @@
     </div>
   </div> 
 
-  <div class="mt-6">
+  <div class="mt-6 mx-6">
     <form class="flex items-center max-w-lg mx-auto" method="GET" action="{{ route('blog') }}">  
       <label for="simple-search" class="sr-only">Search</label>
       <div class="relative w-full">
