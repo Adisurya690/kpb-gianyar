@@ -16,7 +16,7 @@
         font-family: Helvetica, Arial, sans-serif;
     }
     </style>
-  <link rel="icon" href="{{ asset('storage/images/Logo-KPB.png') }}" type="image/png">
+  <link rel="icon" href="{{ asset('public/storage/images/Logo-KPB.png') }}" type="image/png">
   <title>KPB Gianyar</title>
   <style>
       @keyframes floating {
