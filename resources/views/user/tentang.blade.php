@@ -37,7 +37,7 @@
               <div x-data="{ currentImage: 0, images: [
                     '{{ asset('storage/images/kb14.jpg') }}',
                     '{{ asset('storage/images/pengurus.png') }}',
-                    '{{ asset('storage/images/bor.jpg') }}'
+                    '{{ asset('storage/images/bor.JPG') }}'
                 ] }" 
                 x-init="setInterval(() => { currentImage = (currentImage + 1) % images.length }, 10000)" 
                 class="relative w-full h-[400px] overflow-hidden rounded-3xl">
@@ -191,7 +191,7 @@
           <img src="{{ asset('storage/images/edinitya.jpg') }}" class="w-full h-[250px] object-cover rounded-lg" />
         </div>
         <div>
-          <img src="{{ asset('storage/images/bor.jpg') }}" class="w-full h-[250px] object-cover rounded-lg" />
+          <img src="{{ asset('storage/images/bor.JPG') }}" class="w-full h-[250px] object-cover rounded-lg" />
         </div>
         <div>
           <img src="{{ asset('storage/images/triadi.png') }}" class="w-full h-[250px] object-cover rounded-lg" />
