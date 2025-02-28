@@ -175,7 +175,7 @@
   
   <section class="py-16 px-6">
       <div class="max-w-5xl mx-auto text-center">
-          <h2 class="text-3xl md:text-4xl lg:text-4xl md:text-4xl font-bold mb-4">Jajaran Kepengurusan</h2>
+          <h2 class="text-3xl md:text-4xl lg:text-4xl md:text-4xl font-bold mb-4">Jenjang Keanggotaan</h2>
           <p class="text-gray-400 mb-8">
             Jajaran kepengurusan KPB Gianyar terdiri dari Dewan Penanggung Jawab, Pembina, Asisten Pembina, Pengurus, dan Anggota yang berperan dalam pengelolaan serta pengembangan organisasi. Dengan dedikasi dan komitmen, mereka berkontribusi dalam pelestarian budaya dan mewujudkan visi serta misi KPB Gianyar.
           </p>
