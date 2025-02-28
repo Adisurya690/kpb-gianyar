@@ -74,7 +74,7 @@
     <div class="flex flex-col md:flex-row justify-center items-center py-5 pr-5 space-y-4 md:space-y-0 md:space-x-4">
       <!-- Card 1: Budaya Benda -->
       <a href="{{ route('user.kebudayaan', ['category' => 'Benda']) }}" 
-          class="flex flex-row md:flex-col items-center bg-white border border-gray-200 rounded-lg shadow w-full md:max-w-md hover:bg-gray-100 transform hover:scale-105 transition-all">
+          class="flex flex-row md:flex-col items-center bg-white border border-gray-200 rounded-lg shadow w-full md:max-w-md hover:bg-gray-100 transform hover:scale-[1.02] transition-all">
             <div class="w-32 h-32 md:w-full md:h-48 overflow-hidden flex-shrink-0">
                 <img class="object-cover w-full h-full rounded-l-lg md:rounded-t-lg md:rounded-bl-none" 
                     src="https://www.rentalmobilbali.net/wp-content/uploads/2021/04/Candi-Tebing-Gunung-Kawi-Facebook.jpg" 
@@ -87,7 +87,7 @@
       </a>
         <!-- Card 2: Budaya Tak Benda -->
         <a href="{{ route('user.kebudayaan', ['category' => 'Tak Benda']) }}" 
-            class="flex flex-row md:flex-col items-center bg-white border border-gray-200 rounded-lg shadow w-full md:max-w-md hover:bg-gray-100 transform hover:scale-105 transition-all">
+            class="flex flex-row md:flex-col items-center bg-white border border-gray-200 rounded-lg shadow w-full md:max-w-md hover:bg-gray-100 transform hover:scale-[1.02] transition-all">
               <div class="w-32 h-32 md:w-full md:h-48 overflow-hidden flex-shrink-0">
                   <img class="object-cover w-full h-full rounded-l-lg md:rounded-t-lg md:rounded-bl-none" 
                       src="https://statik.tempo.co/data/2023/02/08/id_1179591/1179591_720.jpg" 
@@ -114,7 +114,7 @@
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
           <div class="relative w-full h-64 overflow-hidden rounded-lg">
-            <img class="w-full h-full object-cover transition-all transform hover:scale-110 hover:object-center" src="https://www.sma1-sukawati.sch.id/aset/uploads/1.jpeg" alt="mockup">
+            <img class="w-full h-full object-cover transition-all transform hover:scale-[1.02] hover:object-center" src="https://www.sma1-sukawati.sch.id/aset/uploads/1.jpeg" alt="mockup">
           </div>
         </div>                                   
     </div>
@@ -175,7 +175,7 @@
   <div class="hidden md:flex flex-wrap justify-center items-center">
       @foreach ($blogs as $blog)
           <a class="px-3" href="{{ route('blogDetail', $blog->slug) }}">
-              <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 transform hover:bg-gray-100 hover:scale-105 transition-all">
+              <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 transform hover:bg-gray-100 hover:scale-[1.02] transition-all">
                   <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
                       <img src="{{ asset('storage/' . $blog->featured_image) }}" alt="{{ $blog->title }}" class="object-cover w-full h-full">
                   </div>
