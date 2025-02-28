@@ -118,7 +118,7 @@
     </div>
 
     <!-- Menu Burger (Hanya Tampil di Mobile dan Tablet) -->
-    <div id="burger-menu" class="hidden lg:hidden fixed top-16 right-4 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+    <div id="burger-menu" class="hidden lg:hidden fixed top-16 right-4 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-10 transition-all duration-300 max-h-0 overflow-hidden">
       <ul class="flex flex-col p-4 font-medium">
         @if(Auth::guard('web')->check() || Auth::guard('internal')->check())
           <!-- Opsi untuk Pengguna yang Sudah Login -->
@@ -163,12 +163,38 @@
 
 <!-- JavaScript untuk Mengontrol Menu Burger -->
 <script>
-  document.getElementById('burger-button').addEventListener('click', function() {
-    var menu = document.getElementById('burger-menu');
-    if (menu.classList.contains('hidden')) {
-      menu.classList.remove('hidden');
-    } else {
-      menu.classList.add('hidden');
+  document.addEventListener('DOMContentLoaded', function () {
+    const burgerButton = document.getElementById('burger-button');
+    const burgerMenu = document.getElementById('burger-menu');
+
+    function showMenu() {
+      burgerMenu.classList.remove('hidden');
+      setTimeout(() => {
+        burgerMenu.style.maxHeight = burgerMenu.scrollHeight + "px"; // Buat menu turun ke bawah
+      }, 10);
     }
+
+    function hideMenu() {
+      burgerMenu.style.maxHeight = "0px"; // Tutup menu secara perlahan
+      setTimeout(() => {
+        burgerMenu.classList.add('hidden');
+      }, 300);
+    }
+
+    burgerButton.addEventListener('click', function (event) {
+      event.stopPropagation();
+      if (burgerMenu.classList.contains('hidden')) {
+        showMenu();
+      } else {
+        hideMenu();
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!burgerMenu.contains(event.target) && !burgerButton.contains(event.target)) {
+        hideMenu();
+      }
+    });
   });
 </script>
+

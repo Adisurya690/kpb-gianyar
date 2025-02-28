@@ -7,8 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
   <style>
     body {
@@ -29,41 +28,36 @@
             <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">
                 {{ $kebudayaan->name }}
             </h1>
-            <div id="default-carousel" class="relative w-full" data-carousel="slide">
-              <!-- Carousel wrapper -->
-              <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                  @foreach($kebudayaan->images as $image)
-                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                      <img src="{{ asset('storage/' . $image->path) }}" 
-                          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" 
-                          alt="Gambar {{ $loop->index + 1 }}">
-                  </div>
-                  @endforeach
+            <div x-data="carousel()" x-init="autoSlide()" class="relative w-full overflow-hidden">
+              <!-- Carousel Wrapper -->
+              <div class="relative flex transition-transform duration-700 ease-in-out"
+                  :style="'transform: translateX(-' + (currentSlide * 100) + '%);'">
+                  <template x-for="(slide, index) in slides" :key="index">
+                      <div class="min-w-full">
+                          <img :src="slide" class="block w-full h-56 md:h-96 object-cover rounded-lg" alt="Slide">
+                      </div>
+                  </template>
               </div>
           
-              <!-- Slider indicators -->
-              <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                  @foreach($kebudayaan->images as $index => $image)
-                  <button type="button" class="w-3 h-3 rounded-full" aria-label="Slide {{ $index + 1 }}" data-carousel-slide-to="{{ $index }}"></button>
-                  @endforeach
+              <!-- Slider Indicators -->
+              <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                  <template x-for="(slide, index) in slides" :key="index">
+                      <button @click="goToSlide(index)" class="w-2 h-2 rounded-full transition-all duration-300"
+                          :class="currentSlide === index ? 'bg-white scale-110' : 'bg-gray-400 opacity-50'"></button>
+                  </template>
               </div>
           
-              <!-- Slider controls -->
-              <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                  <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
-                      <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                      </svg>
-                      <span class="sr-only">Previous</span>
-                  </span>
+              <!-- Slider Controls -->
+              <button @click="prev()" class="absolute top-1/2 left-2 -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 bg-white/30 rounded-full group hover:bg-white/50 focus:outline-none">
+                  <svg class="w-4 h-4 text-white group-hover:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                  </svg>
               </button>
-              <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                  <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
-                      <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                      </svg>
-                      <span class="sr-only">Next</span>
-                  </span>
+              
+              <button @click="next()" class="absolute top-1/2 right-2 -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 bg-white/30 rounded-full group hover:bg-white/50 focus:outline-none">
+                  <svg class="w-4 h-4 text-white group-hover:text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                  </svg>
               </button>
           </div>          
             <br>
@@ -100,4 +94,31 @@
   {{-- Footer --}}
   @include('partials.footer') 
 </body>
+
+<script>
+  function carousel() {
+      return {
+          currentSlide: 0,
+          slides: [
+              @foreach($kebudayaan->images as $image)
+                  '{{ asset('storage/' . $image->path) }}',
+              @endforeach
+          ],
+          next() {
+              this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+          },
+          prev() {
+              this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+          },
+          goToSlide(index) {
+              this.currentSlide = index;
+          },
+          autoSlide() {
+              setInterval(() => {
+                  this.next();
+              }, 5000);
+          }
+      }
+  }
+</script>
 </html>
