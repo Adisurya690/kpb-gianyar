@@ -35,7 +35,7 @@
   </div>  
 
   {{-- Search --}}
-  <div class="my-6">
+  <div class="my-6 mx-6">
     <form action="{{ route('galeri') }}" method="GET" class="flex items-center max-w-lg mx-auto">   
       <label for="simple-search" class="sr-only">Search</label>
       <div class="relative w-full">
