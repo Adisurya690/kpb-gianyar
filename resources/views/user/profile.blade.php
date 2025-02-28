@@ -50,10 +50,10 @@
             @endif
           </div>
           <div class="p-4 lg:border-t md:border-t mx-8 mt-2 flex">
-            {{-- <a href="{{ route('profile.edit') }}" 
+            <a href="{{ route('profile.edit') }}" 
                 class="block mx-auto rounded-full bg-white border-2 border-red-700 text-red-700 hover:bg-red-700 hover:text-white hover:shadow-lg font-semibold px-9 py-2">
                 Edit
-            </a> --}}
+            </a>
             
             <form method="POST" action="{{ Auth:: guard('web')->check() ? route('logout') : route('internal.logout') }}" class="flex mx-auto">
                 @csrf
