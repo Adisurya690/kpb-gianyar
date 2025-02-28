@@ -66,7 +66,7 @@ class RegisteredUserController extends Controller
         }
 
         // Jika kode yang dimasukkan adalah KPBGNYR25, arahkan ke form tambahan internal
-        if ($enteredCode === 'KPBGYR') {
+        if ($enteredCode === 'KPBGNYR25') {
             session(['internal_data' => $userData]);
             session()->forget(['register_data', 'verification_code']);
             return redirect()->route('internal.complete.form');
