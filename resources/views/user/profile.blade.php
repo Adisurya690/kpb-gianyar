@@ -41,6 +41,7 @@
           </div>
           <div class="p-4 text-center">
             <p>{{ Auth::guard('web')->check() ? Auth::guard('web')->user()->email : Auth::guard('internal')->user()->email }}</p>
+            <p>{{ Auth::guard('web')->check() ? Auth::guard('web')->user()->phone_number : Auth::guard('internal')->user()->phone_number }}</p>
             <p>{{ Auth::guard('web')->check() ? Auth::guard('web')->user()->address : Auth::guard('internal')->user()->address }}</p>
             @if (Auth::guard('internal')->check()) 
                 <p>{{ Auth::guard('internal')->user()->nia }}</p>
