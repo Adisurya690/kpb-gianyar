@@ -63,7 +63,7 @@
 
   <div class="flex flex-wrap justify-center items-stretch gap-6  py-6">
     @forelse ($blogs as $blog)
-        <a class="px-3 sm:px-0 w-full sm:w-80 md:w-96 transform hover:scale-[1.02] transition-all" href="{{ route('blogDetail', $blog->slug) }}">
+        <a class="px-4 sm:px-0 w-full sm:w-80 md:w-96 transform hover:scale-[1.02] transition-all" href="{{ route('blogDetail', $blog->slug) }}">
             <div class="flex flex-col bg-white shadow-md border border-gray-200 rounded-lg overflow-hidden hover:bg-gray-100">
                 <div class="relative h-56 overflow-hidden">
                     <img src="{{ asset('storage/' . $blog->featured_image) }}" alt="{{ $blog->title }}" class="object-cover w-full h-full">
