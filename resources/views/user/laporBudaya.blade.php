@@ -11,7 +11,7 @@
       /* Custom CSS untuk TomSelect */
       .ts-wrapper {
           width: 100% !important;
-          position: relative; /* Pastikan wrapper menjadi referensi posisi */
+          position: relative;
       }
       .ts-control {
           width: 100% !important;
@@ -22,7 +22,7 @@
           display: flex !important;
           align-items: center !important;
           gap: 0.5rem !important;
-          box-sizing: border-box; /* Pastikan padding tidak memengaruhi lebar */
+          box-sizing: border-box;
       }
       .ts-dropdown {
           border: 1px solid #e2e8f0 !important;
@@ -32,11 +32,11 @@
           overflow-y: auto;
           position: absolute !important;
           z-index: 1000 !important;
-          width: 100% !important; /* Sesuaikan lebar dengan ts-control */
-          top: 100% !important; /* Posisikan di bawah ts-control */
+          width: 100% !important;
+          top: 100% !important;
           left: 0 !important;
           background-color: white !important;
-          box-sizing: border-box; /* Pastikan padding tidak memengaruhi lebar */
+          box-sizing: border-box;
       }
       .ts-control .dropdown-icon {
           display: none !important;
@@ -48,10 +48,28 @@
           cursor: pointer !important;
       }
       .ts-dropdown .option:hover {
-          background-color: #fce7f3 !important; /* Warna merah muda saat hover */
+          background-color: #fce7f3 !important;
       }
       .modal {
           z-index: 1000 !important;
+      }
+
+      /* Styling untuk mobile */
+      @media (max-width: 640px) {
+          .modal-card {
+              width: 90% !important; /* Lebar modal card 90% dari layar */
+              max-width: 100% !important; /* Batasi lebar maksimum */
+              max-height: 80vh !important; /* Batasi tinggi maksimum modal card */
+              margin: 5% auto !important; /* Jarak dari atas dan bawah */
+              padding: 1.5rem !important; /* Padding untuk konten */
+              overflow-y: auto; /* Tambahkan scroll jika konten terlalu panjang */
+              display: flex;
+              flex-direction: column;
+              gap: 1rem; /* Jarak antara elemen di dalam modal */
+              border-radius: 0.5rem; /* Sudut yang lebih bulat */
+              background-color: white; /* Warna background */
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow untuk efek kedalaman */
+          }
       }
   </style>
 </head>
@@ -59,9 +77,9 @@
   <div class="text-2xl py-4 px-6 bg-red-700 text-white text-center font-bold uppercase">
     Lapor Temuan Budaya
   </div>
-  <form class="py-4 px-6" id="laporForm" action="{{ route('store-report') }}" method="POST" enctype="multipart/form-data">
+  <form class="py-4 px-6 modal-card" id="laporForm" action="{{ route('store-report') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    <div class="mb-6">
+    <div class="mb-2">
         <label class="block text-gray-700 font-bold mb-2" for="name">
             Nama Kebudayaan
         </label>
@@ -69,17 +87,17 @@
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition duration-200"
             id="name" type="text" name="name" required>
     </div>
-    <div class="mb-6">
+    <div class="mb-2">
         <label class="block text-gray-700 font-bold mb-2" for="location">
             Lokasi
         </label>
         <select id="location" name="location" class="w-full" autocomplete="off" required></select>
     </div>
-    <div class="mb-6">
+    <div class="mb-2">
       <label class="block text-gray-700 font-bold mb-2" for="images">
           Gambar Kebudayaan
       </label>
-      <p class="text-sm text-gray-600 mb-4">(Maksimal 3 gambar, ukuran per gambar maksimal 5 MB)</p>
+      <p class="text-sm text-gray-600 mb-2">(Maksimal 3 gambar, ukuran per gambar maksimal 5 MB)</p>
       <input
           class="hidden"
           id="images" type="file" name="images[]" accept="image/*" multiple required>
@@ -88,7 +106,7 @@
       </label>
       <div id="imagePreview" class="mt-4 grid grid-cols-3 gap-4"></div>
     </div>
-    <div class="mb-6">
+    <div class="mb-2">
         <label class="block text-gray-700 font-bold mb-2" for="description">
             Deskripsi
         </label>
@@ -145,7 +163,7 @@
                           return `<div>${escape(data.text)}</div>`;
                       },
                       dropdown: function(data, escape) {
-                          return `<div class="ts-dropdown px-2"></div>`;
+                          return `<div class="ts-dropdown"></div>`;
                       }
                   }
               });
