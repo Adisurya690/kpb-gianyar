@@ -143,38 +143,40 @@ class RegisteredUserController extends Controller
             'position' => 'required|string|max:255',
             'kpbprov' => 'nullable|string|max:255',
         ]);
-
+    
         $internalData = session('internal_data');
-
+    
         if (!$internalData) {
             return redirect()->route('register')->withErrors(['error' => 'Silakan daftar kembali.']);
         }
-
+    
         // Ambil role internal
         $role = Role::where('name', 'internal')->first();
         if (!$role) {
             return back()->withErrors(['role' => 'Role internal tidak ditemukan di database.']);
         }
-
-        // Simpan data internal ke database
+    
+        // Simpan data internal ke database dengan password di-hash
         $internal = Internal::create([
             'name' => $internalData['name'],
             'nickname' => $internalData['nickname'],
             'email' => $internalData['email'],
-            'password' => $internalData['password'],
+            'password' => Hash::make($internalData['password']), // Fix hash password
             'phone_number' => $internalData['phone_number'],
             'nia' => $request->nia,
             'position' => $request->position,
             'kpbprov' => $request->kpbprov,
             'role_id' => $role->id,
         ]);
-
-        // Hapus session setelah data disimpan
-        session()->forget(['internal_data']);
-
+    
+        // Hapus session setelah data tersimpan
+        session()->forget('internal_data');
+    
         // Login user internal
         Auth::login($internal);
-
-        return redirect()->route('dashboard')->with('success', 'Akun internal berhasil dibuat.');
+    
+        // Redirect ke home setelah login
+        return redirect()->route('home')->with('success', 'Akun internal berhasil dibuat dan langsung login.');
     }
+    
 }
