@@ -111,11 +111,17 @@ Route::post('/internal-logout', function (Request $request) {
 //   return redirect('/');
 // })->name('logout');
 
-// Redirect setelah login berdasarkan role
+// // Redirect setelah login berdasarkan role
+// Route::middleware(['auth'])->group(function () {
+//   Route::get('/dashboard', function () {
+//       return redirect()->route('home'); // Semua user diarahkan ke home
+//   })->name('dashboard');
+// });
+
 Route::middleware(['auth'])->group(function () {
-  Route::get('/dashboard', function () {
-      return redirect()->route('home'); // Semua user diarahkan ke home
-  })->name('dashboard');
+  Route::get('/home', function () {
+      return view('home'); // Pastikan ini mengarah ke halaman home yang benar
+  })->name('home');
 });
 
 
