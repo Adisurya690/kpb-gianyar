@@ -120,7 +120,7 @@ Route::post('/internal-logout', function (Request $request) {
 
 Route::middleware(['auth'])->group(function () {
   Route::get('/home', function () {
-      return view('home'); // Pastikan ini mengarah ke halaman home yang benar
+      return view('user.home'); // Pastikan ini mengarah ke halaman home yang benar
   })->name('home');
 });
 
