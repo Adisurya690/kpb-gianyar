@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::middleware(Authenticate::class)->group(function () {
-  Route::get('/dashboard', function () {
-      return view('dashboard');
+  Route::get('/home', function () {
+      return view('home');
   });
 });
 
