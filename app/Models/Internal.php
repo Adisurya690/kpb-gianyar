@@ -23,6 +23,7 @@ class Internal extends Authenticatable
         'address',
         'kpbprov',
         'role_id',
+        'nia',
         'remember_token',
         'is_verified',
     ];
