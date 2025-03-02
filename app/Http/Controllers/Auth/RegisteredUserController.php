@@ -173,7 +173,7 @@ class RegisteredUserController extends Controller
         session()->forget('internal_data');
     
         // Login user internal
-        Auth::login($internal);
+        Auth::guard('internal')->login($internal);
     
         // Redirect ke home setelah login
         return redirect()->route('home')->with('success', 'Akun internal berhasil dibuat dan langsung login.');
