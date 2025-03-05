@@ -90,7 +90,7 @@ class InternalResource extends Resource
               ImageColumn::make('profile_picture')
                 ->label('Foto Profil')
                 ->circular()
-                ->defaultImageUrl(url('https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg')),
+              ->defaultImageUrl(url('https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg')),
               TextColumn::make('name')
                 ->label('Nama')
                 ->searchable()
