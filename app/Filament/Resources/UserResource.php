@@ -9,6 +9,7 @@ use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -71,6 +72,8 @@ class UserResource extends Resource
                   Textarea::make('address')
                       ->label('Alamat')
                       ->required(),
+                  Hidden::make('role_id')
+                      ->default(2),
               ]),
           ]);
   
