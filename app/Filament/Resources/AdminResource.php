@@ -73,7 +73,6 @@ class AdminResource extends Resource
                         ]),
                     Hidden::make('role_id')
                         ->default(1),
-                    
                 ]),
             ]);
     }
