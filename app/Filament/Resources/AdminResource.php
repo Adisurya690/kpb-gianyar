@@ -8,6 +8,7 @@ use App\Models\Admin;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -69,7 +70,10 @@ class AdminResource extends Resource
                         ->options([
                             'superAdmin' => 'superAdmin',
                             'admin' => 'admin',
-                        ])
+                        ]),
+                    Hidden::make('role_id')
+                        ->default(1),
+                    
                 ]),
             ]);
     }
