@@ -199,7 +199,7 @@ class LaporResource extends Resource
                   "Deskripsi Singkat : {$record->description}\n" .
                   "Dilaporkan oleh : {$record->reporter}\n" .
                   "Tanggal Laporan : " . Carbon::parse($record->created_at)->translatedFormat('d M Y') . "\n\n" .
-                  "Klik di sini untuk melihat lebih lanjut: www.kpbgianyar.com/laporan \n".
+                  // "Klik di sini untuk melihat lebih lanjut: www.kpbgianyar.com/laporan \n".
                   "Salam Budaya! Lestarikan!!"
               );
 
