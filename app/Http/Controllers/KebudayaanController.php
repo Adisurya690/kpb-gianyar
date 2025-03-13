@@ -24,8 +24,7 @@ class KebudayaanController extends Controller
                     $q->where(function ($innerQuery) use ($term) {
                         $innerQuery->where('category', 'like', "%$term%")
                             ->orWhere('name', 'like', "%$term%")
-                            ->orWhere('location', 'like', "%$term%")
-                            ->orWhere('description', 'like', "%$term%");
+                            ->orWhere('location', 'like', "%$term%");
                     });
                 }
             });
