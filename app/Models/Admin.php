@@ -18,7 +18,7 @@ class Admin extends Authenticatable implements FilamentUser
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'name', 'nickname', 'avatar', 'email', 'password', 'role_id'
+        'name', 'nickname', 'avatar', 'email', 'password', 'role_id' , 'role'
     ];
 
     protected $hidden = [
