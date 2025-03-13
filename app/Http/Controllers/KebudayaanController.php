@@ -22,9 +22,7 @@ class KebudayaanController extends Controller
             $query->where(function ($q) use ($searchTerms) {
                 foreach ($searchTerms as $term) {
                     $q->where(function ($innerQuery) use ($term) {
-                      $innerQuery->where('category', 'like', "$term %") // Kata di awal
-                            ->orWhere('category', 'like', "% $term %") // Kata di tengah
-                            ->orWhere('category', 'like', "% $term") // Kata di akhir
+                        $innerQuery->where('category', 'like', "%$term%")
                             ->orWhere('name', 'like', "%$term%")
                             ->orWhere('location', 'like', "%$term%");
                     });
