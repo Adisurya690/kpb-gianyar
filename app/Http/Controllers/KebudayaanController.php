@@ -16,19 +16,24 @@ class KebudayaanController extends Controller
             $query->where('category', $category);
         }
 
-        // Filter pencarian jika ada input
+        // Filter berdasarkan pencarian teks
         if ($request->filled('search')) {
-            $searchTerms = explode(' ', $request->input('search')); // Pisahkan input menjadi beberapa kata
-            $query->where(function ($q) use ($searchTerms) {
-                foreach ($searchTerms as $term) {
-                    $q->where(function ($innerQuery) use ($term) {
-                        $innerQuery->where('category', 'like', "%$term%")
-                            ->orWhere('name', 'like', "%$term%")
-                            ->orWhere('location', 'like', "%$term%");
-                    });
-                }
-            });
-        }
+          $searchTerms = explode(' ', $request->input('search'));
+          $query->where(function ($q) use ($searchTerms) {
+              foreach ($searchTerms as $term) {
+                  $q->where(function ($innerQuery) use ($term) {
+                      $innerQuery->where('category', 'like', "%$term%")
+                          ->orWhere('name', 'like', "%$term%")
+                          ->orWhere('location', 'like', "%$term%");
+                  });
+              }
+          });
+      }
+
+      // Filter berdasarkan kategori (Benda/Tak Benda)
+      if ($request->filled('category') && in_array($request->input('category'), ['Benda', 'Tak Benda'])) {
+          $query->where('category', $request->input('category'));
+      }
 
         // Ambil data kebudayaan berdasarkan query dan pagination
         $kebudayaan = $query->orderBy('name', 'asc')->paginate(12);

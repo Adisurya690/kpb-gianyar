@@ -46,8 +46,16 @@
           </svg>                                  
         </div>
         <input style="padding-left: 40px" type="text" id="simple-search" name="search" class="bg-white border text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full ps-10 p-2.5"
-              value="{{ request('search') }}" placeholder="Cari berdasarkan nama atau kategori atau lokasi" />
+              value="{{ request('search') }}" placeholder="Cari berdasarkan nama atau lokasi" />
       </div>
+      
+      {{-- Dropdown Kategori --}}
+      <select name="category" class="p-2.5 ms-2 text-sm border rounded-lg text-gray-900 bg-white focus:ring-red-500 focus:border-red-500" style="padding-right: 30px;">
+        <option value="">Semua Kategori</option>
+        <option value="Benda" {{ request('category') == 'Benda' ? 'selected' : '' }}>Benda</option>
+        <option value="Tak Benda" {{ request('category') == 'Tak Benda' ? 'selected' : '' }}>Tak Benda</option>
+      </select>
+
       <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-red-700 rounded-lg hover:bg-red-800">
         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
@@ -56,7 +64,7 @@
     </form>
   </div>
 
-  <div class="flex justify-center flex-wrap">
+  <div class="flex justify-center flex-wrap min-h-screen">
     @forelse ($kebudayaan as $item)
       <a class="px-3" href="{{ route('kebudayaan.detail', $item->slug) }}">
         <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 hover:bg-gray-100 hover:scale-[1.02] transition-all">
