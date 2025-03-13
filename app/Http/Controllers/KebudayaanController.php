@@ -9,13 +9,13 @@ class KebudayaanController extends Controller
 {
     public function index(Request $request, $category = null)
     {
-        $query = Kebudayaan::query(); // Query dasar untuk kebudayaan
-    
+        $query = Kebudayaan::with('images'); // Ambil relasi images
+
         // Jika ada kategori, filter berdasarkan kategori
         if ($category) {
             $query->where('category', $category);
         }
-    
+
         // Filter pencarian jika ada input
         if ($request->filled('search')) {
             $searchTerms = explode(' ', $request->input('search')); // Pisahkan input menjadi beberapa kata
@@ -29,19 +29,21 @@ class KebudayaanController extends Controller
                 }
             });
         }
-    
+
         // Ambil data kebudayaan berdasarkan query dan pagination
         $kebudayaan = $query->orderBy('name', 'asc')->paginate(12);
-    
+
         return view('user.kebudayaan', compact('kebudayaan'));
-    }    
+    }
 
     public function show($slug)
     {
-        $kebudayaan = Kebudayaan::where('slug', $slug)->firstOrFail();
+        // Ambil data kebudayaan beserta semua gambar
+        $kebudayaan = Kebudayaan::with('images')->where('slug', $slug)->firstOrFail();
 
         // Kebudayaan lainnya (tidak termasuk kebudayaan yang sedang dibuka)
-        $otherKebudayaans = Kebudayaan::where('id', '!=', $kebudayaan->id)
+        $otherKebudayaans = Kebudayaan::with('images')
+            ->where('id', '!=', $kebudayaan->id)
             ->latest()
             ->take(4)
             ->get();

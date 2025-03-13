@@ -64,7 +64,7 @@
             <div class="absolute top-2 left-2 bg-red-700 py-0.5 px-2.5 text-xs text-white rounded-full">
               {{ $item->category }}
             </div>
-            <img src="{{ asset('storage/' . $item->featured_image) }}" alt="card-image" class="w-full h-full object-cover">
+            <img src="{{ $item->getFeaturedImageUrl() }}" alt="card-image" class="w-full h-full object-cover">
           </div>
           <div class="px-4 pb-4">
             <h5 class="text-slate-800 text-2xl font-semibold">
