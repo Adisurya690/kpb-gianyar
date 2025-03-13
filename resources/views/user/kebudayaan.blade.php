@@ -56,7 +56,7 @@
     </form>
   </div>
 
-  <div class="flex justify-center flex-wrap">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center">
     @forelse ($kebudayaan as $item)
       <a class="px-3" href="{{ route('kebudayaan.detail', $item->slug) }}">
         <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 hover:bg-gray-100 hover:scale-[1.02] transition-all">
